@@ -173,15 +173,15 @@
       tick();
     }
 
-    // ====== Projects data (edit me) ====== TODO: Put in own dir
-    // const user_github_site = "https://github.com/nievyx"
+    // ====== Projects data (edit me) ====== TODO: modularise products - Move project data into /data/projects.js for maintainability
+    const user_github_site = "https://github.com/nievyx"
     const projects = [
       {
     title: "Django Blog",
     desc: "A Django project featuring user registration, authentication, and full CRUD functionality for blog posts. Includes two main apps — Blog and Users — and uses Crispy Forms with Bootstrap 4 for clean, responsive UI.",
     stack: ["Python", "Django 5.2", "Crispy Forms", "Bootstrap 4", "SQLite"],
     links: { 
-      repo: "https://github.com/nievyx/Django_Project", 
+      repo: user_github_site + "/Django_Project", 
       demo: null 
     }
   },
@@ -190,7 +190,7 @@
     desc: "A lightweight Flask web app to manage store inventory with CRUD (Create, Read, Update, Delete) functionality. Built with Flask and SQLite for efficient local database management.",
     stack: ["Python", "Flask", "SQLite", "SQLAlchemy"],
     links: { 
-      repo: "https://github.com/nievyx", 
+      repo: user_github_site + "/FlaskInventoryApp", 
       demo: null 
     }
   },
@@ -199,7 +199,7 @@
     desc: "A Python automation tool that monitors product stock on e-commerce sites using Playwright. Sends real-time SMS alerts when selected products become available, with optional auto-add-to-cart functionality.",
     stack: ["Python 3.11", "Playwright", "Twilio API", "dotenv", "JSON"],
     links: { 
-      repo: "https://github.com/nievyx/playwright-auto-checker", 
+      repo: user_github_site + "/playwright-auto-checker", 
       demo: null
     }
   },
@@ -208,7 +208,7 @@
     desc: "A classic turn-based console RPG built entirely in Python. Explore maps, battle enemies, manage your party, and progress through a fantasy world — all from your terminal.",
     stack: ["Python", "OOP", "JSON", "Game Loops"],
     links: { 
-      repo: "https://github.com/nievyx", 
+      repo: user_github_site + "/class-based-rpg-python", 
       demo: null 
     }
   }
