@@ -120,7 +120,7 @@
         </svg>
       </div>
       <div class="title">
-        <h1>PORTFOLIO</h1>
+        <h1>NIAMH'S PORTFOLIO</h1>
         <p id="years">2020–<span id="year"></span></p>
       </div>
     </header>
@@ -183,16 +183,6 @@
     const user_github_site = "https://github.com/nievyx"
     // const project_image_folder = "\assets\imgs\" + name + "\demo.png"
     const projects = [
-      {
-    title: "Django Blog",
-    name: "django_project",
-    desc: "A Django project featuring user registration, authentication, and full CRUD functionality for blog posts. Includes two main apps — Blog and Users — and uses Crispy Forms with Bootstrap 4 for clean, responsive UI.",
-    stack: ["Python", "Django 5.2", "Crispy Forms", "Bootstrap 4", "SQLite"],
-    links: { 
-      repo: user_github_site + "/Django_Project", 
-      demo: null 
-    }
-  },
   {
     title: "Flask Inventory App",
     name: "flaskinventoryapp",
@@ -220,6 +210,16 @@
     stack: ["Python", "OOP", "JSON", "Game Loops"],
     links: { 
       repo: user_github_site + "/class-based-rpg-python", 
+      demo: null 
+    }
+  },
+   {
+    title: "Django Blog",
+    name: "django_project",
+    desc: "A Django project featuring user registration, authentication, and full CRUD functionality for blog posts. Includes two main apps — Blog and Users — and uses Crispy Forms with Bootstrap 4 for clean, responsive UI.",
+    stack: ["Python", "Django 5.2", "Crispy Forms", "Bootstrap 4", "SQLite"],
+    links: { 
+      repo: user_github_site + "/Django_Project", 
       demo: null 
     }
   }
@@ -254,16 +254,15 @@
     media.className = 'card-media';
 
     const img = document.createElement('img');
-    img.src = `assets/imgs/${p.name}/demo.png`;
+    img.src = `assets/imgs/${p.name}/demo.gif`;   // try .gif first
     img.alt = `${p.title} demo`;
     img.loading = "lazy";
+
+    // fallback to PNG if the GIF doesn’t exist
     img.onerror = () => {
-      img.remove();
-      const thumb = document.createElement('div');
-      thumb.className = 'thumb';
-      thumb.textContent = p.title;
-      media.appendChild(thumb);
-    };
+    img.onerror = null; // prevent loop
+    img.src = `assets/imgs/${p.name}/demo.png`;
+  };
     media.appendChild(img);
 
     grid.innerHTML = `
