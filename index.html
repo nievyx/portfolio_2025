@@ -173,39 +173,46 @@
       tick();
     }
 
-    // ====== Projects data (edit me) ======
+    // ====== Projects data (edit me) ====== TODO: Put in own dir
     const projects = [
       {
-        title: "FastAPI Microservice Kit",
-        desc: "Production‑ready template with JWT auth, SQLAlchemy, async tasks, OpenAPI docs, and CI (pytest + coverage).",
-        stack: ["Python", "FastAPI", "PostgreSQL", "SQLAlchemy", "PyTest", "Docker"],
-        links: { repo: "https://github.com/your-username/fastapi-microservice-kit", demo: null }
-      },
-      {
-        title: "Django Blog + REST",
-        desc: "Content site with DRF for mobile clients, custom admin analytics, and Redis caching (95th pctl TTFB < 100ms).",
-        stack: ["Python", "Django", "Django REST Framework", "Redis", "PostgreSQL"],
-        links: { repo: "https://github.com/your-username/django-blog-rest", demo: "https://your-demo.example.com" }
-      },
-      {
-        title: "Task Queue Playground",
-        desc: "Celery workers running image processing jobs, backed by Redis, with Prometheus metrics & Grafana dashboards.",
-        stack: ["Celery", "Redis", "Prometheus", "Grafana", "Docker Compose"],
-        links: { repo: "https://github.com/your-username/celery-playground", demo: null }
-      },
-      {
-        title: "Store Inventory API",
-        desc: "RESTful inventory management service with role‑based access, pagination, and JSON:API spec compliance.",
-        stack: ["Flask", "Marshmallow", "JWT", "SQLite", "Gunicorn"],
-        links: { repo: "https://github.com/your-username/inventory-api", demo: null }
-      },
-      {
-        title: "CLI: Git‑Aware Changelog",
-        desc: "Command‑line tool that generates conventional‑commit changelogs and tags releases automatically.",
-        stack: ["Python", "Click", "Rich", "PyPI"],
-        links: { repo: "https://github.com/your-username/git-changelog-cli", demo: null }
-      }
-    ];
+    title: "Django Blog",
+    desc: "A Django project featuring user registration, authentication, and full CRUD functionality for blog posts. Includes two main apps — Blog and Users — and uses Crispy Forms with Bootstrap 4 for clean, responsive UI.",
+    stack: ["Python", "Django 5.2", "Crispy Forms", "Bootstrap 4", "SQLite"],
+    links: { 
+      repo: "https://github.com/nievyx", 
+      demo: null 
+    }
+  },
+  {
+    title: "Flask Inventory App",
+    desc: "A lightweight Flask web app to manage store inventory with CRUD (Create, Read, Update, Delete) functionality. Built with Flask and SQLite for efficient local database management.",
+    stack: ["Python", "Flask", "SQLite", "SQLAlchemy"],
+    links: { 
+      repo: "https://github.com/nievyx", 
+      demo: null 
+    }
+  },
+  {
+    title: "Automated Stock Checker + Add to Cart",
+    desc: "A Python automation tool that monitors product stock on e-commerce sites using Playwright. Sends real-time SMS alerts when selected products become available, with optional auto-add-to-cart functionality.",
+    stack: ["Python 3.11", "Playwright", "Twilio API", "dotenv", "JSON"],
+    links: { 
+      repo: "https://github.com/nievyx", 
+      demo: "https://playwright.dev/" 
+    }
+  },
+  {
+    title: "Terminal RPG Game",
+    desc: "A classic turn-based console RPG built entirely in Python. Explore maps, battle enemies, manage your party, and progress through a fantasy world — all from your terminal.",
+    stack: ["Python", "OOP", "JSON", "Game Loops"],
+    links: { 
+      repo: "https://github.com/nievyx", 
+      demo: null 
+    }
+  }
+];
+    
 
     function projectCard(p){
       const grid = document.createElement('article');
