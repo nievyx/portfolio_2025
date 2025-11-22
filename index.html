@@ -67,7 +67,7 @@
     @keyframes blink{50%{opacity:0}}
 
     .cta-row{display:flex;gap:14px;margin-top:10px}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:12px;text-decoration:none;font-weight:600;border:1px solid rgba(255,255,255,.08);box-shadow:var(--shadow)}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:12px;text-decoration:none;font-weight:600;border:1px solid rgba(255,255,255,.08);box-shadow:var(--shadow);cursor:pointer}
     .btn.primary{background:linear-gradient(135deg, var(--accent), var(--accent-2));color:#0e0f14}
     .btn.ghost{background:var(--panel);color:var(--text)}
 
@@ -82,7 +82,7 @@
     .desc{color:var(--muted);font-size:14px;line-height:1.5}
     .stack{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 14px}
     .tag{font-size:12px;padding:6px 9px;border-radius:999px;background:#0f111a;border:1px solid rgba(255,255,255,.08);color:#cfd0ff}
-    .card-actions{display:flex;gap:10px}
+    .card-actions{display:flex;gap:10px;flex-wrap:wrap}
 
     .github-icon{height:16px;width:16px}
 
@@ -97,9 +97,62 @@
     .card-media { display:flex; align-items:center; justify-content:center; overflow:hidden; }
     .card-media img { width:100%; height:100%; object-fit:cover; }
 
+    /* ===== Simple Popup Modal ===== */
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      z-index: 3000;
+    }
 
+    .modal.show {
+      display: block;
+    }
+
+    .modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+    }
+
+    /* make popup window use terminal styling */
+    .modal-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: min(850px, 90%);
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 0; /* header + body handle padding */
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(180deg, var(--panel), var(--panel-2));
+      font-family: "Space Mono", ui-monospace, monospace;
+    }
+
+    /* close button now lives in the terminal header */
+    .modal-close {
+      margin-left: auto;
+      background: transparent;
+      border: none;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 18px;
+      padding: 0;
+    }
 
     footer{margin-top:52px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+
+
+    .modal-body-terminal {
+    font-family: "Space Mono", ui-monospace, monospace;
+    padding: 20px 18px 24px;
+    font-size: 15px;
+    white-space: normal;  /* important */
+  }
+
   </style>
 </head>
 <body>
@@ -127,11 +180,12 @@
 
     <section class="intro">
       <div class="term" aria-label="terminal intro">
-        <div class="term-header">
-          <span class="dot red"></span>
-          <span class="dot yellow"></span>
-          <span class="dot green"></span>
-        </div>
+      <div class="term-header">
+        <span class="dot red" onclick="closeModal()" style="cursor:pointer;"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+      </div>
+
         <div class="term-body" id="terminalText" role="status" aria-live="polite"></div>
       </div>
       <div class="cta-row">
@@ -147,6 +201,20 @@
       <span>© <span id="footerYear"></span> Niamh • Python backend student engineer</span>
       <span>Built with pure HTML/CSS/JS</span>
     </footer>
+  </div>
+
+  <!-- UNIVERSAL POPUP MODAL (NOW TERMINAL-STYLED) -->
+  <div id="modal" class="modal">
+    <div class="modal-backdrop" onclick="closeModal()"></div>
+    <div class="modal-content term">
+      <div class="term-header">
+  <span class="dot red" onclick="closeModal()" style="cursor:pointer;"></span>
+  <span class="dot yellow"></span>
+  <span class="dot green"></span>
+</div>
+
+      <div id="modal-inner" class="modal-body-terminal"></div>
+    </div>
   </div>
 
   <script>
@@ -167,7 +235,12 @@
       let i=0, line=0; el.textContent="";
       function tick(){
         if(line >= lines.length){
-          if(!el.querySelector('.caret')){const c=document.createElement('span');c.className='caret';el.appendChild(c);}return;
+          if(!el.querySelector('.caret')){
+            const c=document.createElement('span');
+            c.className='caret';
+            el.appendChild(c);
+          }
+          return;
         }
         if(i < lines[line].length){
           el.textContent += lines[line][i++];
@@ -179,112 +252,145 @@
       tick();
     }
 
-    // ====== Projects data ====== #TODO: modularise products - Move project data into /data/projects.js for maintainability 
+    // ====== Projects data ====== 
     const user_github_site = "https://github.com/nievyx"
-    // const project_image_folder = "\assets\imgs\" + name + "\demo.png"
     const projects = [
-  {
-    title: "Flask Inventory App",
-    name: "flaskinventoryapp",
-    desc: "A lightweight Flask web app to manage store inventory with CRUD (Create, Read, Update, Delete) functionality. Built with Flask and SQLite for efficient local database management.",
-    stack: ["Python", "Flask", "SQLite", "SQLAlchemy"],
-    links: { 
-      repo: user_github_site + "/FlaskInventoryApp", 
-      demo: null 
-    }
-  },
-  {
-    title: "Automated Stock Checker + Add to Cart",
-    name: "playwright-auto-checker",
-    desc: "A Python automation tool that monitors product stock on e-commerce sites using Playwright. Sends real-time SMS alerts when selected products become available, with optional auto-add-to-cart functionality.",
-    stack: ["Python 3.11", "Playwright", "Twilio API", "dotenv", "JSON"],
-    links: { 
-      repo: user_github_site + "/playwright-auto-checker", 
-      demo: null
-    }
-  },
-  {
-    title: "Terminal RPG Game",
-    name: "class-based-rpg-python",
-    desc: "A classic turn-based console RPG built entirely in Python. Explore maps, battle enemies, manage your party, and progress through a fantasy world — all from your terminal.",
-    stack: ["Python", "OOP", "JSON", "Game Loops"],
-    links: { 
-      repo: user_github_site + "/class-based-rpg-python", 
-      demo: null 
-    }
-  },
-   {
-    title: "Django Blog",
-    name: "django_project",
-    desc: "A Django project featuring user registration, authentication, and full CRUD functionality for blog posts. Includes two main apps — Blog and Users — and uses Crispy Forms with Bootstrap 4 for clean, responsive UI.",
-    stack: ["Python", "Django 5.2", "Crispy Forms", "Bootstrap 4", "SQLite"],
-    links: { 
-      repo: user_github_site + "/Django_Project", 
-      demo: null 
-    }
-  }
-];
+      {
+        title: "Flask Inventory App",
+        name: "flaskinventoryapp",
+        desc: "A lightweight Flask web app to manage store inventory with CRUD (Create, Read, Update, Delete) functionality. Built with Flask and SQLite for efficient local database management.",
+        stack: ["Python", "Flask", "SQLite", "SQLAlchemy"],
+        links: { 
+          repo: user_github_site + "/FlaskInventoryApp", 
+          demo: null 
+        }
+      },
+      {
+        title: "Automated Stock Checker + Add to Cart",
+        name: "playwright-auto-checker",
+        desc: "A Python automation tool that monitors product stock on e-commerce sites using Playwright. Sends real-time SMS alerts when selected products become available, with optional auto-add-to-cart functionality.",
+        stack: ["Python 3.11", "Playwright", "Twilio API", "dotenv", "JSON"],
+        links: { 
+          repo: user_github_site + "/playwright-auto-checker", 
+          demo: null
+        }
+      },
+      {
+        title: "Terminal RPG Game",
+        name: "class-based-rpg-python",
+        desc: "A classic turn-based console RPG built entirely in Python. Explore maps, battle enemies, manage your party, and progress through a fantasy world — all from your terminal.",
+        stack: ["Python", "OOP", "JSON", "Game Loops"],
+        links: { 
+          repo: user_github_site + "/class-based-rpg-python", 
+          demo: null 
+        }
+      },
+      {
+        title: "Django Blog",
+        name: "django_project",
+        desc: "A Django project featuring user registration, authentication, and full CRUD functionality for blog posts. Includes two main apps — Blog and Users — and uses Crispy Forms with Bootstrap 4 for clean, responsive UI.",
+        stack: ["Python", "Django 5.2", "Crispy Forms", "Bootstrap 4", "SQLite"],
+        links: { 
+          repo: user_github_site + "/Django_Project", 
+          demo: null 
+        }
+      }
+    ];
     
-
-    // function projectCard(p){
-    //   const grid = document.createElement('article');
-    //   grid.className = 'card';
-    //   grid.innerHTML = `
-    //     <div class="card-body">
-    //       <h3>${p.title}</h3>
-    //       <p class="desc">${p.desc}</p>
-    //       <div class="stack">${p.stack.map(s=>`<span class="tag">${s}</span>`).join('')}</div>
-    //       <div class="card-actions">
-    //         ${p.links.repo ? `<a class="btn ghost" href="${p.links.repo}" target="_blank" rel="noopener"> <svg class="github-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58l-.01-2.04c-3.34.73-4.04-1.61-4.04-1.61-.54-1.39-1.31-1.76-1.31-1.76-1.07-.73.08-.72.08-.72 1.19.08 1.82 1.23 1.82 1.23 1.05 1.8 2.75 1.28 3.42.98.11-.76.41-1.28.75-1.57-2.66-.3-5.47-1.34-5.47-5.97 0-1.32.47-2.39 1.23-3.24-.12-.3-.53-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.87.12 3.17.76.85 1.23 1.92 1.23 3.24 0 4.64-2.81 5.67-5.49 5.97.42.36.8 1.08.8 2.18l-.01 3.23c0 .32.21.7.83.58A12 12 0 0 0 12 .5Z"/></svg> Code</a>`: ''}
-    //         ${p.links.demo ? `<a class="btn primary" href="${p.links.demo}" target="_blank" rel="noopener">Live Demo</a>`: ''}
-    //       </div>
-    //     </div>
-    //     <div class="card-media">
-    //       <div class="thumb">${p.title}</div>
-    //     </div>`;
-    //   return grid;
-    // }
-
     function projectCard(p){
-    const grid = document.createElement('article');
-    grid.className = 'card';
+      const grid = document.createElement('article');
+      grid.className = 'card';
 
-    // build media
-    const media = document.createElement('div');
-    media.className = 'card-media';
+      // build media
+      const media = document.createElement('div');
+      media.className = 'card-media';
 
-    const img = document.createElement('img');
-    img.src = `assets/imgs/${p.name}/demo.gif`;   // try .gif first
-    img.alt = `${p.title} demo`;
-    img.loading = "lazy";
+      const img = document.createElement('img');
+      img.src = `assets/imgs/${p.name}/demo.gif`;   // try .gif first
+      img.alt = `${p.title} demo`;
+      img.loading = "lazy";
 
-    // fallback to PNG if the GIF doesn’t exist
-    img.onerror = () => {
-    img.onerror = null; // prevent loop
-    img.src = `assets/imgs/${p.name}/demo.png`;
-  };
-    media.appendChild(img);
+      // fallback to PNG if the GIF doesn’t exist
+      img.onerror = () => {
+        img.onerror = null; // prevent loop
+        img.src = `assets/imgs/${p.name}/demo.png`;
+      };
+      media.appendChild(img);
 
-    grid.innerHTML = `
-      <div class="card-body">
-        <h3>${p.title}</h3>
-        <p class="desc">${p.desc}</p>
-        <div class="stack">${p.stack.map(s=>`<span class="tag">${s}</span>`).join('')}</div>
-        <div class="card-actions">
-          ${p.links.repo ? `<a class="btn ghost" href="${p.links.repo}" target="_blank" rel="noopener">
-            <svg class="github-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58l-.01-2.04c-3.34.73-4.04-1.61-4.04-1.61-.54-1.39-1.31-1.76-1.31-1.76-1.07-.73.08-.72.08-.72 1.19.08 1.82 1.23 1.82 1.23 1.05 1.8 2.75 1.28 3.42.98.11-.76.41-1.28.75-1.57-2.66-.3-5.47-1.34-5.47-5.97 0-1.32.47-2.39 1.23-3.24-.12-.3-.53-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.87.12 3.17.76.85 1.23 1.92 1.23 3.24 0 4.64-2.81 5.67-5.49 5.97.42.36.8 1.08.8 2.18l-.01 3.23c0 .32.21.7.83.58A12 12 0 0 0 12 .5Z"/></svg>
-            Code</a>`: ''}
-          ${p.links.demo ? `<a class="btn primary" href="${p.links.demo}" target="_blank" rel="noopener">Live Demo</a>`: ''}
+      grid.innerHTML = `
+        <div class="card-body">
+          <h3>${p.title}</h3>
+          <p class="desc">${p.desc}</p>
+          <div class="stack">
+            ${p.stack.map(s=>`<span class="tag">${s}</span>`).join('')}
+          </div>
+          <div class="card-actions">
+            ${p.links.repo ? `
+              <a class="btn ghost" href="${p.links.repo}" target="_blank" rel="noopener">
+                <svg class="github-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58l-.01-2.04c-3.34.73-4.04-1.61-4.04-1.61-.54-1.39-1.31-1.76-1.31-1.76-1.07-.73.08-.72.08-.72 1.19.08 1.82 1.23 1.82 1.23 1.05 1.8 2.75 1.28 3.42.98.11-.76.41-1.28.75-1.57-2.66-.3-5.47-1.34-5.47-5.97 0-1.32.47-2.39 1.23-3.24-.12-.3-.53-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.87.12 3.17.76.85 1.23 1.92 1.23 3.24 0 4.64-2.81 5.67-5.49 5.97.42.36.8 1.08.8 2.18l-.01 3.23c0 .32.21.7.83.58A12 12 0 0 0 12 .5Z"/>
+                </svg>
+                Code
+              </a>
+            `: ''}
+            ${p.links.demo ? `
+              <a class="btn primary" href="${p.links.demo}" target="_blank" rel="noopener">Live Demo</a>
+            `: ''}
+            <button class="btn primary more-info-btn" type="button" data-project="${p.name}">
+                              More Info
+            </button>
+          </div>
         </div>
-      </div>
-    `;
-    grid.appendChild(media);
-    return grid;
-  }
+      `;
+      grid.appendChild(media);
+      return grid;
+    }
 
+    // Build the HTML that goes inside the popup modal for a project
+    function buildProjectModalContent(p) {
+      return `
+        <h2>${p.title}</h2>
+        <p>${p.desc}</p>
+
+        <h3>Tech Stack</h3>
+        <ul>
+          ${p.stack.map(s => `<li>${s}</li>`).join('')}
+        </ul>
+
+        <img
+          src="assets/imgs/${p.name}/demo.gif"
+          style="width:100%;margin-top:12px;border-radius:10px"
+          onerror="this.onerror=null;this.src='assets/imgs/${p.name}/demo.png';"
+        >
+      `;
+    }
+
+    // ===== Modal logic =====
+    function openModal(html) {
+      document.getElementById("modal-inner").innerHTML = html;
+      document.getElementById("modal").classList.add("show");
+    }
+
+    function closeModal() {
+      document.getElementById("modal").classList.remove("show");
+    }
+
+    // Delegate clicks on "More Info" buttons
+    document.addEventListener('click', (event) => {
+      const btn = event.target.closest('.more-info-btn');
+      if (!btn) return;
+
+      const name = btn.dataset.project;
+      const p = projects.find(pr => pr.name === name);
+      if (!p) return;
+
+      const html = buildProjectModalContent(p);
+      openModal(html);
+    });
 
     // Render
-    document.getElementById('projectsGrid').append(...projects.map(projectCard));
+    const projectsGrid = document.getElementById('projectsGrid');
+    projectsGrid.append(...projects.map(projectCard));
     typeInto(document.getElementById('terminalText'), introLines, 18);
 
     // Years & links
@@ -296,3 +402,5 @@
   </script>
 </body>
 </html>
+
+
