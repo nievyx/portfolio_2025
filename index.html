@@ -259,6 +259,30 @@
         title: "Flask Inventory App",
         name: "flaskinventoryapp",
         desc: "A lightweight Flask web app to manage store inventory with CRUD (Create, Read, Update, Delete) functionality. Built with Flask and SQLite for efficient local database management.",
+         // NEW: longer explanation just for the popup
+    longDesc: `
+      This project is a small but complete inventory management system built with Flask.
+      It supports creating, editing, deleting and listing products, with validation and
+      SQLite as the backing database.
+
+      I built it to learn how to structure a Flask app with blueprints and ORM models,
+      and to practice thinking about data flows from the database up to the UI.
+    `,
+
+    // NEW: bullet points just for the popup
+    highlights: [
+      "Full CRUD for products (create, read, update, delete)",
+      "Uses SQLAlchemy models and migrations",
+      "Search and filter inventory records",
+      "Clear separation between routes, templates and models"
+    ],
+
+    // NEW: what you learned / focus
+    learning: [
+      "Structuring a Flask project for growth",
+      "Designing RESTful routes for basic resources",
+      "Working with SQLite and SQLAlchemy relationships"
+    ],
         stack: ["Python", "Flask", "SQLite", "SQLAlchemy"],
         links: { 
           repo: user_github_site + "/FlaskInventoryApp", 
@@ -348,22 +372,64 @@
 
     // Build the HTML that goes inside the popup modal for a project
     function buildProjectModalContent(p) {
-      return `
-        <h2>${p.title}</h2>
-        <p>${p.desc}</p>
+  // fall back to desc if longDesc is missing
+  const mainText = p.longDesc || p.desc || "";
 
-        <h3>Tech Stack</h3>
-        <ul>
-          ${p.stack.map(s => `<li>${s}</li>`).join('')}
-        </ul>
+  const highlightsSection = p.highlights && p.highlights.length
+    ? `
+      <h3>Key Features</h3>
+      <ul>
+        ${p.highlights.map(item => `<li>${item}</li>`).join('')}
+      </ul>
+    `
+    : "";
 
-        <img
-          src="assets/imgs/${p.name}/demo.gif"
-          style="width:100%;margin-top:12px;border-radius:10px"
-          onerror="this.onerror=null;this.src='assets/imgs/${p.name}/demo.png';"
-        >
-      `;
-    }
+  const learningSection = p.learning && p.learning.length
+    ? `
+      <h3>What I Learned</h3>
+      <ul>
+        ${p.learning.map(item => `<li>${item}</li>`).join('')}
+      </ul>
+    `
+    : "";
+
+  const stackSection = p.stack && p.stack.length
+    ? `
+      <h3>Tech Stack</h3>
+      <ul>
+        ${p.stack.map(s => `<li>${s}</li>`).join('')}
+      </ul>
+    `
+    : "";
+
+  const linksSection = p.links && (p.links.repo || p.links.demo)
+    ? `
+      <h3>Links</h3>
+      <ul>
+        ${p.links.repo ? `<li><a href="${p.links.repo}" target="_blank" rel="noopener">Source code on GitHub</a></li>` : ""}
+        ${p.links.demo ? `<li><a href="${p.links.demo}" target="_blank" rel="noopener">Live demo</a></li>` : ""}
+      </ul>
+    `
+    : "";
+
+  return `
+    <h2>${p.title}</h2>
+    <p>${mainText}</p>
+
+    ${highlightsSection}
+    ${learningSection}
+    ${stackSection}
+    ${linksSection}
+
+    <img
+      src="assets/imgs/${p.name}/demo.gif"
+      style="width:100%;margin-top:12px;border-radius:10px"
+      onerror="this.onerror=null;this.src='assets/imgs/${p.name}/demo.png';"
+      alt="${p.title} detailed demo"
+    >
+  `;
+}
+
 
     // ===== Modal logic =====
     function openModal(html) {
