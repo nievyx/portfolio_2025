@@ -9,7 +9,7 @@
     // ====== Intro typewriter ======
     const introLines = [
       "> hi, i'm Niamh! — a self-taught backend developer and first-year software engineering student ",
-      "> i love designing efficient python APIs, automating workflows, and exploring devOps practices",
+      "> i enjoy designing efficient Python APIs, automating workflows, and exploring DevOps practices",
       "> currently expanding my skills through projects and open to remote opportunities"
     ];
 
