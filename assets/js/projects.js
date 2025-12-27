@@ -86,7 +86,8 @@ const projects = [
         demo: null 
     }
     },
-    {     title: 'Tic-tac-Toe Minimax AI',
+    {     
+        title: 'Tic-tac-Toe Minimax AI',
         name: 'tic-tac-toe-minimax-ai',
         desc: 'A tic-tac-toe game featuring an AI opponent powered by the Minimax algorithm, recursively analysing each move to achieve perfect play. Background music is handled via a lightweight miniaudio wrapper.',
         longDesc: "",
@@ -99,7 +100,7 @@ const projects = [
         learning: [],
         stack: ['c++', 'Minimax Algorithm', 'miniAudio','Native Audio APIS'],
         links: {
-            repo: 'https://github.com/nievyx/tictactoe-minimax-ai',
+            repo: user_github_site + '/tictactoe-minimax-ai',
             demo: null,
         },}
 ];
