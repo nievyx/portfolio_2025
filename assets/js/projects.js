@@ -1,6 +1,8 @@
  // ====== Projects data ====== 
 const user_github_site = "https://github.com/nievyx"
 const projects = [
+
+
     {
     title: "Flask Inventory App",
     name: "flaskinventoryapp",
@@ -83,7 +85,46 @@ const projects = [
         repo: user_github_site + "/Django_Project", 
         demo: null 
     }
-    }
+    },
+    {     title: 'Tic-tac-Toe Minimax AI',
+        name: 'tic-tac-toe-minimax-ai',
+        desc: 'A tic-tac-toe game featuring an AI opponent powered by the Minimax algorithm, recursively analysing each move to achieve perfect play. Background music is handled via a lightweight miniaudio wrapper.',
+        longDesc: "",
+        highlights: [
+             'Unbeatable AI using the minimax decision algorithm',
+        'Recursive game tree evaluation with terminal state scoring',
+        'Modular architecture separating game logic, AI, and audio',
+        'Integrated audio playback via a custom miniaudio wrapper'
+        ],
+        learning: [],
+        stack: ['c++', 'Minimax Algorithm', 'miniAudio','Native Audio APIS'],
+        links: {
+            repo: 'https://github.com/nievyx/tictactoe-minimax-ai',
+            demo: null,
+        },}
 ];
+
+ /**
+  * BACKUP / REFERENCE PROJECT OBJECT
+  *
+  * Kept as a reference for project data shape during
+  * the migration from static frontend data to API-driven content.
+  *
+  * Not imported or used at runtime.
+  * Safe to delete once API is fully trusted.
+  */
+ const PROJECT_TEMPLATE ={
+     title: '',
+     name: '',
+     desc: '',
+     longDesc: "",
+     highlights: [],
+     learning: [],
+     stack: [],
+     links: {
+         repo: null,
+         demo: null,
+ },
+ };
 
 //export { projects }; TODO: Delete me!
