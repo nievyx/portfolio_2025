@@ -34,8 +34,18 @@
       tick();
     }
 
-   
-    
+// NEW !!! //
+let projects = [];
+
+async function loadProjects() {
+    // main.js is in /assets/js, so JSON is one level up in /assets/data
+    const res = await fetch("assets/data/projects.json");
+    if (!res.ok) throw new Error(`Failed to load projects.json (${res.status})`);
+    return await res.json();
+}
+//         //
+
+
     function projectCard(p){
       const grid = document.createElement('article');
       grid.className = 'card';
@@ -170,13 +180,25 @@
     });
 
     // Render
-    const projectsGrid = document.getElementById('projectsGrid');
-    projectsGrid.append(...projects.map(projectCard));
-    typeInto(document.getElementById('terminalText'), introLines, 18);
+document.addEventListener("DOMContentLoaded", async () => {
+    // Always show intro
+    typeInto(document.getElementById("terminalText"), introLines, 18);
+
+    // Load + render projects
+    try {
+        projects = await loadProjects();
+
+        const projectsGrid = document.getElementById("projectsGrid");
+        projectsGrid.append(...projects.map(projectCard));
+    } catch (err) {
+        console.error(err);
+    }
+
 
     // Years & links
     const y = new Date().getFullYear();
-    document.getElementById('year').textContent = y;
-    document.getElementById('footerYear').textContent = y;
-    document.getElementById('githubLink').href = LINKS.github;
-    document.getElementById('cvBtn').href = LINKS.cv;
+    document.getElementById("year").textContent = y;
+    document.getElementById("footerYear").textContent = y;
+    document.getElementById("githubLink").href = LINKS.github;
+    document.getElementById("cvBtn").href = LINKS.cv;
+});
