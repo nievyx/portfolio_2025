@@ -1,0 +1,42 @@
+{
+  "basics": {
+    "name": "Niamh",
+    "tagline": "Software developer with a focus on backend systems and practical tooling.",
+    "location": "UK",
+    "links": {
+      "github": "https://github.com/nievyx",
+      "linkedin": "https://uk.linkedin.com/in/niamh-porter-8632b7367",
+      "portfolio": "https://niamhdev.com"
+    }
+  },
+
+  "about": [
+    "I’m a developer interested in building reliable systems and tooling rather than just demos.",
+    "I enjoy working on backend logic, APIs, and understanding how software behaves in real environments.",
+    "Currently building a desktop-style web OS to explore UI architecture and system design."
+  ],
+
+  "skills": {
+    "languages": ["Python", "HTML", "CSS", "SQL (MySQL)","C++", "JavaScript"],
+    "frameworks": ["Flask","Django", "React"],
+    "tools": ["Git", "Docker", "Vercel"],
+    "concepts": [
+      "REST APIs",
+      "Authentication & Authorization",
+      "State management",
+      "System design fundamentals"
+    ]
+  },
+
+  "interests": [
+    "Developer tooling",
+    "UI systems and window managers",
+    "Backend architecture",
+    "DevOps fundamentals"
+  ],
+
+  "status": {
+    "availability": "Open to internships and junior roles",
+    "notes": "Actively learning and building projects to strengthen practical experience."
+  }
+}

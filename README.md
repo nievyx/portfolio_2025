@@ -26,6 +26,7 @@ root
     │
     ├── data/
     │   └── projects.json   #Project data (titles, descriptions, stack, modal content)
+    │   └── about.json   #About me data 
     │
     ├── legacy/
     │   └── projects.legacy.js        # Old Legacy Project data (titles, descriptions, stack, modal content)
