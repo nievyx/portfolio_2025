@@ -12,7 +12,7 @@ professional way with simple navigation and a visually appealing layout.
 
 ## 📁 File Structure 
 ```
-/project-root
+root
 │
 ├── index.html                 # Main portfolio page (structure + content)
 │
@@ -21,12 +21,19 @@ professional way with simple navigation and a visually appealing layout.
     │   └── style.css          # Global styling for the entire site
     │
     ├── js/
-    │   ├── main.js            # Core logic: rendering cards, modal system, UI behaviour
-    │   └── projects.js        # Project data (titles, descriptions, stack, modal content)
+    │   └── main.js            # Core logic: rendering cards, modal system, UI behaviour
+    │
+    │
+    ├── data/
+    │   └── projects.json   #Project data (titles, descriptions, stack, modal content)
+    │
+    ├── legacy/
+    │   └── projects.legacy.js        # Old Legacy Project data (titles, descriptions, stack, modal content)
+    │
     │
     └── imgs/
         └── <project folders>  # Demo GIFs/PNGs for each project
 ```
 ## 📬 Contact
 
-Feel free to get in touch using the contact form on the site.
+Feel free to get in touch using the contact form on the site. (Currently unavaliable, feel free to message me via github)
