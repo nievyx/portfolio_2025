@@ -50,7 +50,7 @@
     },
     "visibility": {
       "portfolio": true,
-      "os": false
+      "os": true
     }
   },
   {
@@ -86,7 +86,7 @@
     },
     "visibility": {
       "portfolio": true,
-      "os": false
+      "os": true
     }
   },
   {
