@@ -110,6 +110,42 @@
     "visibility": {
       "portfolio": true,
       "os": true
+  }
+    },
+  {
+    "id": "react-fake-os-website",
+    "name": "react-fake-os-website",
+    "title": "React Fake OS Website",
+    "desc": "",
+    "longDesc": "",
+    "highlights": [],
+    "learning": [],
+    "stack": [],
+    "links": {
+      "repo": null,
+      "demo": null
+    },
+    "visibility": {
+      "portfolio": true,
+      "os": false
+    }
+  },
+    {
+      "id": "block-craft",
+      "name": "block-craft",
+      "title": "Block Craft",
+      "desc": "",
+      "longDesc": "",
+      "highlights": [],
+      "learning": [],
+      "stack": [],
+      "links": {
+      "repo": null,
+      "demo": null
+      },
+      "visibility": {
+      "portfolio": false,
+      "os": false
     }
   }
 ]

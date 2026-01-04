@@ -1,0 +1,18 @@
+{
+  "id": "",
+  "name": "",
+  "title": "",
+  "desc": "",
+  "longDesc": "",
+  "highlights": [],
+  "learning": [],
+  "stack": [],
+  "links": {
+    "repo": null,
+    "demo": null
+  },
+  "visibility": {
+    "portfolio": false,
+    "os": false
+  }
+}
