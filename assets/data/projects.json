@@ -59,7 +59,14 @@
     "title": "Terminal RPG Game",
     "desc": "A classic turn-based console RPG built entirely in Python. Explore maps, battle enemies, manage your party, and progress through a fantasy world — all from your terminal.",
     "longDesc": "",
-    "highlights": [],
+    "highlights": [
+    "🗺️ Map Exploration: Move around a grid-based world with multiple maps.",
+    "⚔️ Turn-Based Combat: Strategic battles with party members and enemies.",
+    "🧠 Vocations: Unique character classes like Warrior, Mage, and Healer.",
+    "📊 Stat Growth: Exponential scaling stats based on vocation and level.",
+    "🎒 Inventory System: Carry and use items during and outside combat.",
+    "💾 Saving and Loading: Save your progress and resume where you left off. (in Progress)"
+    ],
     "learning": [],
     "stack": ["Python", "OOP", "JSON", "Game Loops"],
     "links": {
@@ -113,17 +120,27 @@
   }
     },
   {
-    "id": "react-fake-os-website",
-    "name": "react-fake-os-website",
+    "id": "react-fake-os",
+    "name": "react-fake-os",
     "title": "React Fake OS Website",
-    "desc": "",
+    "desc": "A web-based fake operating system built with React, featuring desktop-style window management, interactive applications, and a retro-inspired UI.",
     "longDesc": "",
-    "highlights": [],
-    "learning": [],
-    "stack": [],
+    "highlights": [
+      "Modular component-based architecture for windows and applications",
+      "Fully Functional Music Player",
+      "Fake terminal application with interactive command-style input",
+      "Dynamic project data loaded from external JSON"
+    ],
+    "learning": [
+      "Designing reusable React components for complex interactive UIs",
+      "Managing application and window state across multiple components",
+      "Separating data from presentation using external JSON sources",
+      "Planning extensible frontend architecture with future backend support"
+    ],
+    "stack": ["React", "Javascript" ,"Vite"],
     "links": {
       "repo": null,
-      "demo": null
+      "demo": "www.niamh.world"
     },
     "visibility": {
       "portfolio": true,

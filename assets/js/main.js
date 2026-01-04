@@ -1,40 +1,40 @@
 //import { projects } from "./projects.js"; #TODO: DELETE THIS
 
-    // ====== Editable profile links ======
-    const LINKS = {
-      github: "https://github.com/nievyx/",
-      cv: "https://your-cv-link.example.com/Niamh_CV.pdf"
-    };
+// ====== Editable profile links ======
+const LINKS = {
+  github: "https://github.com/nievyx/",
+  cv: "https://your-cv-link.example.com/Niamh_CV.pdf"
+};
 
-    // ====== Intro typewriter ======
-    const introLines = [
-      "> hi, i'm Niamh! — a self-taught backend developer and first-year software engineering student ",
-      "> i enjoy designing efficient Python APIs, automating workflows, and exploring DevOps practices",
-      "> currently expanding my skills through projects and open to remote opportunities"
-    ];
+// ====== Intro typewriter ======
+const introLines = [
+  "> hi, i'm Niamh! — a self-taught backend developer and first-year software engineering student ",
+  "> i enjoy designing efficient Python APIs, automating workflows, and exploring DevOps practices",
+  "> currently expanding my skills through projects and open to remote opportunities"
+];
 
-    function typeInto(el, lines, speed=28){
-      let i=0, line=0; el.textContent="";
-      function tick(){
-        if(line >= lines.length){
-          if(!el.querySelector('.caret')){
-            const c=document.createElement('span');
-            c.className='caret';
-            el.appendChild(c);
-          }
-          return;
-        }
-        if(i < lines[line].length){
-          el.textContent += lines[line][i++];
-        }else{
-          el.textContent += "\n"; line++; i=0;
-        }
-        requestAnimationFrame(()=>setTimeout(tick, speed));
+function typeInto(el, lines, speed=28){
+  let i=0, line=0; el.textContent="";
+  function tick(){
+    if(line >= lines.length){
+      if(!el.querySelector('.caret')){
+        const c=document.createElement('span');
+        c.className='caret';
+        el.appendChild(c);
       }
-      tick();
+      return;
     }
+    if(i < lines[line].length){
+      el.textContent += lines[line][i++];
+    }else{
+      el.textContent += "\n"; line++; i=0;
+    }
+    requestAnimationFrame(()=>setTimeout(tick, speed));
+  }
+  tick();
+}
 
-// NEW !!! //
+// Load projects from JSON !!! //
 let projects = [];
 
 async function loadProjects() {
@@ -43,7 +43,7 @@ async function loadProjects() {
     if (!res.ok) throw new Error(`Failed to load projects.json (${res.status})`);
     return await res.json();
 }
-//         //
+
 
 
     function projectCard(p){
@@ -189,7 +189,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         projects = await loadProjects();
 
         const projectsGrid = document.getElementById("projectsGrid");
-        projectsGrid.append(...projects.map(projectCard));
+        projectsGrid.append(...projects
+            .filter(p => p.visibility && p.visibility.portfolio === true)
+            .map(projectCard)
+        );
     } catch (err) {
         console.error(err);
     }
