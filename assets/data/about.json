@@ -19,7 +19,7 @@
   "skills": {
     "languages": ["Python", "HTML", "CSS", "SQL (MySQL)","C++", "JavaScript"],
     "frameworks": ["Flask","Django", "React"],
-    "tools": ["Git", "Docker", "Vercel"],
+    "tools": ["Git", "Github", "Docker", "Vercel"],
     "concepts": [
       "REST APIs",
       "Authentication & Authorization",
@@ -30,9 +30,10 @@
 
   "interests": [
     "Developer tooling",
-    "UI systems and window managers",
     "Backend architecture",
-    "DevOps fundamentals"
+    "Data-driven design",
+    "DevOps fundamentals",
+    "UI systems and window managers"
   ],
 
   "status": {
