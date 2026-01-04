@@ -140,7 +140,7 @@
     "stack": ["React", "Javascript" ,"Vite"],
     "links": {
       "repo": null,
-      "demo": "www.niamh.world"
+      "demo": "https://www.niamh.world"
     },
     "visibility": {
       "portfolio": true,
