@@ -70,7 +70,7 @@
     "learning": [],
     "stack": ["Python", "OOP", "JSON", "Game Loops"],
     "links": {
-      "repo": "https://github.com/nievyx/class-based-rpg-python",
+      "repo": "https://github.com/nievyx/class-based-rpg-python/blob/main/main.py",
       "demo": null
     },
     "visibility": {
@@ -111,7 +111,7 @@
     "learning": [],
     "stack": ["C++", "Minimax Algorithm", "miniAudio", "Native Audio APIs"],
     "links": {
-      "repo": "https://github.com/nievyx/tictactoe-minimax-ai",
+      "repo": "https://github.com/nievyx/tictactoe-minimax-ai/blob/main/src/game.cpp",
       "demo": null
     },
     "visibility": {
