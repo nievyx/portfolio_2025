@@ -151,14 +151,24 @@
       "id": "block-craft",
       "name": "block-craft",
       "title": "Block Craft",
-      "desc": "",
-      "longDesc": "",
-      "highlights": [],
-      "learning": [],
-      "stack": [],
+      "desc": "A simple Minecraft-inspired sandbox game built in Python using the Ursina engine, featuring block placement, destruction, and first-person movement.",
+      "longDesc": "Block Craft is a small sandbox-style game inspired by Minecraft, developed in Python using the Ursina game engine. The project focuses on core gameplay mechanics such as first-person movement, block placement and removal, and basic world interaction. It was created as a learning exercise to explore 3D game development, real-time input handling, and structuring a larger Python project beyond small scripts.",
+      "highlights": [
+        "First-person player movement with keyboard and mouse controls",
+        "Place and destroy blocks in a 3D world",
+        "Simple block selection system",
+        "Real-time interaction using a Python-based game engine"
+      ],
+      "learning": [
+        "Using a 3D game engine and understanding scene graphs",
+        "Handling real-time input and player controls",
+        "Structuring a larger Python project",
+        "Debugging and iterating on interactive systems"
+      ],
+      "stack": ["Python", "Ursina"],
       "links": {
-      "repo": null,
-      "demo": null
+        "repo": "https://github.com/nievyx/Block-Craft",
+        "demo": null
       },
       "visibility": {
       "portfolio": true,

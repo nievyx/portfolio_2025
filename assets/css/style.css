@@ -142,3 +142,11 @@
     font-size: 15px;
     white-space: normal;  /* important */
   }
+/*    TODO: Move with other media cards. */
+.card-media img,
+.card-media video {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}

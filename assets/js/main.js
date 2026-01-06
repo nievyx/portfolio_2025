@@ -44,28 +44,102 @@ async function loadProjects() {
     return await res.json();
 }
 
+function mountMediaInto(container, projectName, titleText = "Project demo") {
+    const base = `assets/imgs/${projectName}`;
+    const candidates = [
+        {type: "video", src: `${base}/demo.mp4`},
+        {type: "img", src: `${base}/demo.gif`},
+        {type: "img", src: `${base}/demo.png`},
+    ];
+
+    let idx = 0;
+
+    function next() {
+        if (idx >= candidates.length) return;
+
+        const item = candidates[idx++];
+        let el;
+
+        if (item.type === "video") {
+            el = document.createElement("video");
+            el.src = item.src;
+            el.autoplay = true;
+            el.loop = true;
+            el.muted = true;
+            el.playsInline = true;
+            el.controls = true; // optional for modal
+        } else {
+            el = document.createElement("img");
+            el.src = item.src;
+            el.alt = titleText;
+            el.style.width = "100%";
+            el.style.marginTop = "12px";
+            el.style.borderRadius = "10px";
+        }
+
+        el.onerror = () => {
+            el.remove();
+            next();
+        };
+
+        container.appendChild(el);
+    }
+
+    next();
+}
+
+function projectCard(p) {
+    const grid = document.createElement('article');
+    grid.className = 'card';
 
 
-function projectCard(p){
-  const grid = document.createElement('article');
-  grid.className = 'card';
+
 
 
 // build media (demo.mp4 -> demo.gif -> demo.png)
-const media = document.createElement('div');
-media.className = 'card-media';
+    const media = document.createElement('div');
+    media.className = 'card-media';
 
-const img = document.createElement('img');
-img.src = `assets/imgs/${p.name}/demo.gif`;   // try .gif first
-img.alt = `${p.title} demo`;
-img.loading = "lazy";
+    const base = `assets/imgs/${p.name}`;
+    const candidates = [
+        { type: "video", src: `${base}/demo.mp4` },
+        { type: "img",   src: `${base}/demo.gif` },
+        { type: "img",   src: `${base}/demo.png` },
+    ];
 
-// fallback to PNG if the GIF doesn’t exist
-img.onerror = () => {
-    img.onerror = null; // prevent loop
-    img.src = `assets/imgs/${p.name}/demo.png`;
-};
-media.appendChild(img);
+    let idx = 0;
+
+    function mountNext() {
+        if (idx >= candidates.length) return;
+
+        const item = candidates[idx++];
+        let el;
+
+        if (item.type === "video") {
+            el = document.createElement("video");
+            el.src = item.src;
+            el.autoplay = true;
+            el.loop = true;
+            el.muted = true;
+            el.playsInline = true;
+            el.preload = "metadata"; // lighter than auto
+        } else {
+            el = document.createElement("img");
+            el.src = item.src;
+            el.alt = `${p.title} demo`;
+            el.loading = "lazy";
+        }
+
+        el.onerror = () => {
+            el.remove();
+            mountNext();
+        };
+
+        media.appendChild(el);
+    }
+
+    mountNext();
+
 
 
       grid.innerHTML = `
@@ -140,26 +214,24 @@ media.appendChild(img);
     : "";
 
   return `
-    <h2>${p.title}</h2>
-    <p>${mainText}</p>
+      <h2>${p.title}</h2>
+      <p>${mainText}</p>
+    
+      ${highlightsSection}
+      ${learningSection}
+      ${stackSection}
+      ${linksSection}
+    
+      <div class="modal-media" data-project="${p.name}"></div>
 
-    ${highlightsSection}
-    ${learningSection}
-    ${stackSection}
-    ${linksSection}
-
-    <img
-      src="assets/imgs/${p.name}/demo.gif"
-      style="width:100%;margin-top:12px;border-radius:10px"
-      onerror="this.onerror=null;this.src='assets/imgs/${p.name}/demo.png';"
-      alt="${p.title} detailed demo"
-    >
+    
   `;
 }
 
 
     // ===== Modal logic =====
     function openModal(html) {
+
       document.getElementById("modal-inner").innerHTML = html;
       document.getElementById("modal").classList.add("show");
     }
@@ -179,6 +251,9 @@ media.appendChild(img);
 
       const html = buildProjectModalContent(p);
       openModal(html);
+        const mediaSlot = document.querySelector("#modal-inner .modal-media");
+        if (mediaSlot) mountMediaInto(mediaSlot, p.name, `${p.title} detailed demo`);
+
     });
 
     // Render
