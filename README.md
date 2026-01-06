@@ -36,6 +36,16 @@ root
     └── imgs/
         └── <project folders>  # Demo GIFs/PNGs for each project
 ```
+
+#### Future Structure improvements
+```
+assets/js/
+├── main.js          # bootstraps everything
+├── projects.js      # card + modal rendering
+├── media.js         # mp4/gif/png fallback logic
+└── intro.js         # typewriter effect
+```
+
 ## 📬 Contact
 
 Feel free to get in touch using the contact form on the site. (Currently unavaliable, feel free to message me via github)

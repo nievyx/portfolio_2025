@@ -46,25 +46,27 @@ async function loadProjects() {
 
 
 
-    function projectCard(p){
-      const grid = document.createElement('article');
-      grid.className = 'card';
+function projectCard(p){
+  const grid = document.createElement('article');
+  grid.className = 'card';
 
-      // build media
-      const media = document.createElement('div');
-      media.className = 'card-media';
 
-      const img = document.createElement('img');
-      img.src = `assets/imgs/${p.name}/demo.gif`;   // try .gif first
-      img.alt = `${p.title} demo`;
-      img.loading = "lazy";
+// build media (demo.mp4 -> demo.gif -> demo.png)
+const media = document.createElement('div');
+media.className = 'card-media';
 
-      // fallback to PNG if the GIF doesn’t exist
-      img.onerror = () => {
-        img.onerror = null; // prevent loop
-        img.src = `assets/imgs/${p.name}/demo.png`;
-      };
-      media.appendChild(img);
+const img = document.createElement('img');
+img.src = `assets/imgs/${p.name}/demo.gif`;   // try .gif first
+img.alt = `${p.title} demo`;
+img.loading = "lazy";
+
+// fallback to PNG if the GIF doesn’t exist
+img.onerror = () => {
+    img.onerror = null; // prevent loop
+    img.src = `assets/imgs/${p.name}/demo.png`;
+};
+media.appendChild(img);
+
 
       grid.innerHTML = `
         <div class="card-body">
