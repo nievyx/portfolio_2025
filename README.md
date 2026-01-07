@@ -40,9 +40,9 @@ root
 #### Future Structure improvements (PENDING)
 ```
 assets/js/
-├── main.js          # bootstraps everything
-├── projects.js      # card + modal rendering
-├── media.js         # mp4/gif/png fallback logic
+├── ✅main.js          # bootstraps everything
+├── ✅projects.js      # card + modal rendering
+├── ✅media.js         # mp4/gif/png fallback logic
 └── ✅intro.js         # typewriter effect
 ```
 
