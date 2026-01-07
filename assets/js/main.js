@@ -1,3 +1,8 @@
+// New Refactored Approach
+import { initIntro } from "./intro.js";
+initIntro();
+//
+
 //import { projects } from "./projects.js"; #TODO: DELETE THIS
 
 // ====== Editable profile links ======
@@ -6,33 +11,7 @@ const LINKS = {
   cv: "/"
 };
 
-// ====== Intro typewriter ======
-const introLines = [
-  "> hi, i'm Niamh! — a self-taught backend developer and first-year software engineering student ",
-  "> i enjoy designing efficient Python APIs, automating workflows, and exploring DevOps practices",
-  "> currently expanding my skills through projects and open to remote opportunities"
-];
 
-function typeInto(el, lines, speed=28){
-  let i=0, line=0; el.textContent="";
-  function tick(){
-    if(line >= lines.length){
-      if(!el.querySelector('.caret')){
-        const c=document.createElement('span');
-        c.className='caret';
-        el.appendChild(c);
-      }
-      return;
-    }
-    if(i < lines[line].length){
-      el.textContent += lines[line][i++];
-    }else{
-      el.textContent += "\n"; line++; i=0;
-    }
-    requestAnimationFrame(()=>setTimeout(tick, speed));
-  }
-  tick();
-}
 
 // Load projects from JSON !!! //
 let projects = [];
@@ -259,7 +238,7 @@ function projectCard(p) {
     // Render
 document.addEventListener("DOMContentLoaded", async () => {
     // Always show intro
-    typeInto(document.getElementById("terminalText"), introLines, 18);
+    // typeInto(document.getElementById("terminalText"), introLines, 18);
 
     // Load + render projects
     try {

@@ -199,7 +199,7 @@
       "demo": null
     },
     "visibility": {
-      "portfolio": false,
+      "portfolio": true,
       "os": false
     }
   }
