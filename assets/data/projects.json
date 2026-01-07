@@ -174,5 +174,33 @@
       "portfolio": true,
       "os": false
     }
+  },
+  {
+    "id": "image-classifier-gui",
+    "name": "image-classifier-gui",
+    "title": "Image Classifier GUI",
+    "desc": "A desktop GUI application that classifies images using a trained machine learning model, built to explore the basics of computer vision and model integration.",
+    "longDesc": "Image Classifier GUI is a Python desktop application that allows users to load an image and classify it using a pre-trained machine learning model. The project was created to better understand how machine learning models can be integrated into user-facing applications, focusing on model loading, inference, and basic GUI design rather than model training itself.",
+    "highlights": [
+      "Graphical user interface for selecting and classifying images",
+      "Integration of a pre-trained machine learning model",
+      "Displays predicted class output to the user",
+      "Simple, user-friendly desktop workflow"
+    ],
+    "learning": [
+      "Integrating machine learning models into applications",
+      "Handling image input and preprocessing",
+      "Building desktop GUIs in Python",
+      "Separating application logic from interface code"
+    ],
+    "stack": ["Python", "Pillow"],
+    "links": {
+      "repo": "https://github.com/nievyx/ImageClassifierGUI",
+      "demo": null
+    },
+    "visibility": {
+      "portfolio": false,
+      "os": false
+    }
   }
 ]
