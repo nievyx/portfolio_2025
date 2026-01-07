@@ -3,7 +3,7 @@
 // ====== Editable profile links ======
 const LINKS = {
   github: "https://github.com/nievyx/",
-  cv: "https://your-cv-link.example.com/Niamh_CV.pdf"
+  cv: "/"
 };
 
 // ====== Intro typewriter ======
