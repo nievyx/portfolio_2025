@@ -204,6 +204,9 @@ function closeModal() {
     document.getElementById("modal").classList.remove("show");
 }
 
+// TODO: temp
+window.closeModal = closeModal;
+
 // Delegate clicks on "More Info" buttons
 document.addEventListener('click', (event) => {
     const btn = event.target.closest('.more-info-btn');
