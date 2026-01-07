@@ -21,8 +21,10 @@ root
     │   └── style.css          # Global styling for the entire site
     │
     ├── js/
-    │   └── main.js            # Core logic: rendering cards, modal system, UI behaviour
-    │
+    │   ├── main.js          # bootstraps everything
+    │   ├── projects.js      # card + modal rendering
+    │   ├── media.js         # mp4/gif/png fallback logic
+    │   └── intro.js         # typewriter effect
     │
     ├── data/
     │   └── projects.json      #Project data (titles, descriptions, stack, modal content)
@@ -35,15 +37,6 @@ root
     │
     └── imgs/
         └── <project folders>  # Demo GIFs/PNGs for each project
-```
-
-#### Future Structure improvements (PENDING)
-```
-assets/js/
-├── ✅main.js          # bootstraps everything
-├── ✅projects.js      # card + modal rendering
-├── ✅media.js         # mp4/gif/png fallback logic
-└── ✅intro.js         # typewriter effect
 ```
 
 ## 📬 Contact
