@@ -4,7 +4,10 @@ export function mountMediaInto(
     container,
     projectName,
     titleText = "Project demo",
-    { controls = false, addMargin = false, addRadius = false } = {}
+    { 
+        controls = true, 
+        addMargin = false, 
+        addRadius = false } = {}
 ) {
     const base = `assets/imgs/${projectName}`;
     const candidates = [
