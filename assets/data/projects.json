@@ -1,5 +1,33 @@
 [
   {
+    "id": "playwright-auto-checker",
+    "name": "playwright-auto-checker",
+    "title": "Automated Stock Checker + Add to Cart",
+    "desc": "A Python automation tool that monitors product stock on e-commerce sites using Playwright. Sends real-time SMS alerts when selected products become available, with optional auto-add-to-cart functionality.",
+    "longDesc": "A Playwright-powered script that opens product pages, checks availability and can auto-add items to the basket. It sends SMS notifications with Twilio when stock appears, so you don't have to refresh pages manually.",
+    "highlights": [
+      "Headless stock checking using Playwright",
+      "Config-driven list of products to monitor",
+      "Optional auto-add-to-cart behaviour",
+      "Twilio SMS alerts with product details"
+    ],
+    "learning": [
+      "Browser automation with Playwright",
+      "Handling dynamic content and selectors",
+      "Keeping secrets safe with environment variables"
+    ],
+    "stack": ["Python 3.11", "Playwright", "Twilio API", "dotenv", "JSON"],
+    "links": {
+      "repo": "https://github.com/nievyx/playwright-auto-checker",
+      "demo": null
+    },
+    "visibility": {
+      "portfolio": true,
+      "os": true
+    }
+  },
+  
+  {
     "id": "flaskinventoryapp",
     "name": "flaskinventoryapp",
     "title": "Flask Inventory App",
