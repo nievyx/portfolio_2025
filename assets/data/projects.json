@@ -26,33 +26,7 @@
       "os": true
     }
   },
-  {
-    "id": "playwright-auto-checker",
-    "name": "playwright-auto-checker",
-    "title": "Automated Stock Checker + Add to Cart",
-    "desc": "A Python automation tool that monitors product stock on e-commerce sites using Playwright. Sends real-time SMS alerts when selected products become available, with optional auto-add-to-cart functionality.",
-    "longDesc": "A Playwright-powered script that opens product pages, checks availability and can auto-add items to the basket. It sends SMS notifications with Twilio when stock appears, so you don't have to refresh pages manually.",
-    "highlights": [
-      "Headless stock checking using Playwright",
-      "Config-driven list of products to monitor",
-      "Optional auto-add-to-cart behaviour",
-      "Twilio SMS alerts with product details"
-    ],
-    "learning": [
-      "Browser automation with Playwright",
-      "Handling dynamic content and selectors",
-      "Keeping secrets safe with environment variables"
-    ],
-    "stack": ["Python 3.11", "Playwright", "Twilio API", "dotenv", "JSON"],
-    "links": {
-      "repo": "https://github.com/nievyx/playwright-auto-checker",
-      "demo": null
-    },
-    "visibility": {
-      "portfolio": true,
-      "os": true
-    }
-  },
+
   {
     "id": "class-based-rpg-python",
     "name": "class-based-rpg-python",
@@ -60,12 +34,12 @@
     "desc": "A classic turn-based console RPG built entirely in Python. Explore maps, battle enemies, manage your party, and progress through a fantasy world — all from your terminal.",
     "longDesc": "",
     "highlights": [
-    "🗺️ Map Exploration: Move around a grid-based world with multiple maps.",
-    "⚔️ Turn-Based Combat: Strategic battles with party members and enemies.",
-    "🧠 Vocations: Unique character classes like Warrior, Mage, and Healer.",
-    "📊 Stat Growth: Exponential scaling stats based on vocation and level.",
-    "🎒 Inventory System: Carry and use items during and outside combat.",
-    "💾 Saving and Loading: Save your progress and resume where you left off. (in Progress)"
+      "🗺️ Map Exploration: Move around a grid-based world with multiple maps.",
+      "⚔️ Turn-Based Combat: Strategic battles with party members and enemies.",
+      "🧠 Vocations: Unique character classes like Warrior, Mage, and Healer.",
+      "📊 Stat Growth: Exponential scaling stats based on vocation and level.",
+      "🎒 Inventory System: Carry and use items during and outside combat.",
+      "💾 Saving and Loading: Save your progress and resume where you left off. (in Progress)"
     ],
     "learning": [],
     "stack": ["Python", "OOP", "JSON", "Game Loops"],
@@ -78,47 +52,7 @@
       "os": true
     }
   },
-  {
-    "id": "django_project",
-    "name": "django_project",
-    "title": "Django Blog",
-    "desc": "A Django project featuring user registration, authentication, and full CRUD functionality for blog posts. Includes two main apps — Blog and Users — and uses Crispy Forms with Bootstrap 4 for clean, responsive UI.",
-    "longDesc": "",
-    "highlights": [],
-    "learning": [],
-    "stack": ["Python", "Django 5.2", "Crispy Forms", "Bootstrap 4", "SQLite"],
-    "links": {
-      "repo": "https://github.com/nievyx/Django_Project",
-      "demo": null
-    },
-    "visibility": {
-      "portfolio": true,
-      "os": true
-    }
-  },
-  {
-    "id": "tic-tac-toe-minimax-ai",
-    "name": "tic-tac-toe-minimax-ai",
-    "title": "Tic-tac-Toe Minimax AI",
-    "desc": "A tic-tac-toe game featuring an AI opponent powered by the Minimax algorithm, recursively analysing each move to achieve perfect play. Background music is handled via a lightweight miniaudio wrapper.",
-    "longDesc": "",
-    "highlights": [
-      "Unbeatable AI using the minimax decision algorithm",
-      "Recursive game tree evaluation with terminal state scoring",
-      "Modular architecture separating game logic, AI, and audio",
-      "Integrated audio playback via a custom miniaudio wrapper"
-    ],
-    "learning": [],
-    "stack": ["C++", "Minimax Algorithm", "miniAudio", "Native Audio APIs"],
-    "links": {
-      "repo": "https://github.com/nievyx/tictactoe-minimax-ai/blob/main/src/game.cpp",
-      "demo": null
-    },
-    "visibility": {
-      "portfolio": true,
-      "os": true
-  }
-    },
+
   {
     "id": "react-fake-os",
     "name": "react-fake-os",
@@ -137,7 +71,7 @@
       "Separating data from presentation using external JSON sources",
       "Planning extensible frontend architecture with future backend support"
     ],
-    "stack": ["React", "Javascript" ,"Vite"],
+    "stack": ["React", "Javascript", "Vite"],
     "links": {
       "repo": null,
       "demo": "https://www.niamh.world"
@@ -147,34 +81,79 @@
       "os": false
     }
   },
-    {
-      "id": "block-craft",
-      "name": "block-craft",
-      "title": "Block Craft",
-      "desc": "A simple Minecraft-inspired sandbox game built in Python using the Ursina engine, featuring block placement, destruction, and first-person movement.",
-      "longDesc": "Block Craft is a small sandbox-style game inspired by Minecraft, developed in Python using the Ursina game engine. The project focuses on core gameplay mechanics such as first-person movement, block placement and removal, and basic world interaction. It was created as a learning exercise to explore 3D game development, real-time input handling, and structuring a larger Python project beyond small scripts.",
-      "highlights": [
-        "First-person player movement with keyboard and mouse controls",
-        "Place and destroy blocks in a 3D world",
-        "Simple block selection system",
-        "Real-time interaction using a Python-based game engine"
-      ],
-      "learning": [
-        "Using a 3D game engine and understanding scene graphs",
-        "Handling real-time input and player controls",
-        "Structuring a larger Python project",
-        "Debugging and iterating on interactive systems"
-      ],
-      "stack": ["Python", "Ursina"],
-      "links": {
-        "repo": "https://github.com/nievyx/Block-Craft",
-        "demo": null
-      },
-      "visibility": {
+
+  {
+    "id": "django_project",
+    "name": "django_project",
+    "title": "Django Blog",
+    "desc": "A Django project featuring user registration, authentication, and full CRUD functionality for blog posts. Includes two main apps — Blog and Users — and uses Crispy Forms with Bootstrap 4 for clean, responsive UI.",
+    "longDesc": "",
+    "highlights": [],
+    "learning": [],
+    "stack": ["Python", "Django 5.2", "Crispy Forms", "Bootstrap 4", "SQLite"],
+    "links": {
+      "repo": "https://github.com/nievyx/Django_Project",
+      "demo": null
+    },
+    "visibility": {
+      "portfolio": true,
+      "os": true
+    }
+  },
+
+  {
+    "id": "tic-tac-toe-minimax-ai",
+    "name": "tic-tac-toe-minimax-ai",
+    "title": "Tic-Tac-Toe Minimax AI",
+    "desc": "A tic-tac-toe game featuring an AI opponent powered by the Minimax algorithm, recursively analysing each move to achieve perfect play. Background music is handled via a lightweight miniaudio wrapper.",
+    "longDesc": "",
+    "highlights": [
+      "Unbeatable AI using the minimax decision algorithm",
+      "Recursive game tree evaluation with terminal state scoring",
+      "Modular architecture separating game logic, AI, and audio",
+      "Integrated audio playback via a custom miniaudio wrapper"
+    ],
+    "learning": [],
+    "stack": ["C++", "Minimax Algorithm", "miniAudio", "Native Audio APIs"],
+    "links": {
+      "repo": "https://github.com/nievyx/tictactoe-minimax-ai/blob/main/src/game.cpp",
+      "demo": null
+    },
+    "visibility": {
+      "portfolio": true,
+      "os": true
+    }
+  },
+
+  {
+    "id": "block-craft",
+    "name": "block-craft",
+    "title": "Block Craft",
+    "desc": "A simple Minecraft-inspired sandbox game built in Python using the Ursina engine, featuring block placement, destruction, and first-person movement.",
+    "longDesc": "Block Craft is a small sandbox-style game inspired by Minecraft, developed in Python using the Ursina game engine. The project focuses on core gameplay mechanics such as first-person movement, block placement and removal, and basic world interaction. It was created as a learning exercise to explore 3D game development, real-time input handling, and structuring a larger Python project beyond small scripts.",
+    "highlights": [
+      "First-person player movement with keyboard and mouse controls",
+      "Place and destroy blocks in a 3D world",
+      "Simple block selection system",
+      "Real-time interaction using a Python-based game engine"
+    ],
+    "learning": [
+      "Using a 3D game engine and understanding scene graphs",
+      "Handling real-time input and player controls",
+      "Structuring a larger Python project",
+      "Debugging and iterating on interactive systems"
+    ],
+    "stack": ["Python", "Ursina"],
+    "links": {
+      "repo": "https://github.com/nievyx/Block-Craft",
+      "demo": null
+    },
+    "visibility": {
       "portfolio": true,
       "os": false
     }
   },
+
   {
     "id": "image-classifier-gui",
     "name": "image-classifier-gui",
