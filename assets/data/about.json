@@ -17,7 +17,7 @@
   ],
 
   "skills": {
-    "languages": ["Python", "HTML", "CSS", "SQL (MySQL)","C++", "JavaScript"],
+    "languages": ["Python", "React", "HTML", "CSS", "SQL (MySQL)","C++", "TypeScript", "JavaScript"],
     "frameworks": ["Flask","Django", "React"],
     "tools": ["Git", "Github", "Docker", "Vercel"],
     "concepts": [
