@@ -39,6 +39,7 @@
       "Search and filter inventory records",
       "Clear separation between routes, templates and models"
     ],
+    "date": 2019,
     "learning": [
       "Structuring a Flask project for growth",
       "Designing RESTful routes for basic resources",
@@ -209,5 +210,134 @@
       "portfolio": true,
       "os": false
     }
+  },
+
+  {
+  "id": "virtual-desk-setup",
+  "name": "virtual-desk-setup",
+  "title": "Virtual Desk Setup",
+  "desc": "An interactive 3D portfolio environment built with React, TypeScript, React Three Fiber, and Blender, designed around a virtual desk scene with camera modes, editable materials, and monitor interactions.",
+  "longDesc": "Virtual Desk Setup is an experimental 3D portfolio project that turns a personal workspace into an interactive web experience. The scene is modelled in Blender and rendered in React using React Three Fiber, with custom camera modes for editing, play view, and monitor focus. The project is being used to explore 3D web development, scene organisation, responsive camera behaviour, material editing, and developer tooling through a custom debug/control workflow.",
+  "highlights": [
+    "Interactive 3D desk scene exported from Blender as a GLB model",
+    "Mode system for edit, play, and monitor-focused camera states",
+    "Responsive camera behaviour for desktop and mobile layouts",
+    "Developer control panel for tuning lights, environments, materials, and camera positions",
+    "Clickable monitor interaction that transitions the camera toward the screen",
+    "Modular React structure with scene, settings, and feature-based organisation"
+  ],
+  "learning": [
+    "Building 3D web interfaces with React Three Fiber and Three.js",
+    "Creating and exporting Blender assets for use in a web application",
+    "Managing camera transitions, OrbitControls, and responsive 3D composition",
+    "Using TypeScript types, props, state, and config files to organise a growing React project",
+    "Debugging deployment issues between Windows and Linux-based hosting environments",
+    "Designing developer tools and control panels to speed up visual experimentation"
+  ],
+  "stack": [
+    "React",
+    "TypeScript",
+    "Vite",
+    "Three.js",
+    "React Three Fiber",
+    "Drei",
+    "Leva",
+    "Blender",
+    "Vercel"
+  ],
+  "links": {
+    "repo": "https://github.com/nievyx/virtual-desk-setup",
+    "demo": "https://virtual-desk-setup.vercel.app/"
+  },
+  "visibility": {
+    "portfolio": false,
+    "os": true
   }
+},
+{
+  "id": "databases-assignment",
+  "name": "databases-assignment",
+  "title": "Databases Assignment",
+  "desc": "A relational database and CRUD REST API wrapper built with FastAPI, SQLite, React, Vite, and Docker Compose, designed around a space-themed tabletop game database.",
+  "longDesc": "Databases Assignment is a full-stack database project built to demonstrate relational database design, CRUD operations, and API integration. The backend uses FastAPI with raw SQL and SQLite, avoiding an ORM to focus directly on database concepts and query handling. The frontend is built with React and Vite, providing a simple interface for interacting with players, profiles, assets, and quests. Docker Compose is included to run the frontend and backend together, making the project easier to develop, test, and demonstrate.",
+  "highlights": [
+    "FastAPI backend with RESTful CRUD endpoints",
+    "SQLite relational database using schema and seed SQL files",
+    "React + Vite frontend for interacting with the API",
+    "Docker Compose setup for running frontend and backend together",
+    "Space-themed tabletop game data model",
+    "Separate backend route structure for players, profiles, assets, and quests",
+    "Database reset script for quickly rebuilding and reseeding the database",
+    "Project documentation including ERD and data dictionary materials"
+  ],
+  "learning": [
+    "Designing relational databases using entities, relationships, primary keys, and foreign keys",
+    "Writing raw SQL schema and seed files without relying on an ORM",
+    "Building REST API endpoints with FastAPI",
+    "Connecting a React frontend to a backend API",
+    "Structuring a full-stack project with separate backend and frontend folders",
+    "Using Docker Compose to run multi-service applications",
+    "Creating reusable database reset and setup scripts",
+    "Documenting database design through ERDs, data dictionaries, and supporting notes"
+  ],
+  "stack": [
+    "Python",
+    "FastAPI",
+    "Uvicorn",
+    "SQLite",
+    "SQL",
+    "React",
+    "Vite",
+    "JavaScript",
+    "Docker",
+    "Docker Compose"
+  ],
+  "links": {
+    "repo": "https://github.com/nievyx/databases-assignment",
+    "demo": ""
+  },
+  "visibility": {
+    "portfolio": false,
+    "os": true
+  }
+},
+{
+  "id": "niamhs-monster-cards",
+  "name": "niamhs-monster-cards",
+  "title": "Niamh's Monster Cards",
+  "desc": "A turn-based monster card battle game built in Python with Pygame, featuring wave-based battles, monster cards, spells, rarity, and resource management.",
+  "longDesc": "Niamh's Monster Cards is a turn-based card battle game developed in Python using Pygame. The player controls a team of monster cards and battles against enemy cards in a wave-based mode. Each monster has attributes such as health, mana, energy, strength, rarity, and known spells. The game takes inspiration from monster card games such as Yu-Gi-Oh!, but was designed to be more accessible, with clear stats, simple actions, and a quick-to-learn battle system.",
+  "highlights": [
+    "Wave-based turn system with player and AI enemy turns",
+    "Monster cards with HP, MP, energy, strength, rarity, and known spells",
+    "Damage and healing spell system with mana costs",
+    "Random card rewards after winning waves",
+    "Dynamic cursor changes for attacks and spell selection",
+    "Image caching system to reduce repeated loading and scaling"
+  ],
+  "learning": [
+    "Building a real-time game loop with Pygame",
+    "Designing turn-based battle states and win/loss conditions",
+    "Using classes for monsters, spells, battle logic, and UI components",
+    "Separating game data, battle logic, and rendering code",
+    "Using lists and dictionaries for card hands, monster pools, spells, and image caching",
+    "Managing project scope and moving larger features into future development"
+  ],
+  "stack": [
+  "Python 3.13", 
+  "Pygame",
+   "OOP", 
+   "Game Loops", 
+   "State Machines"
+  ],
+  "links": {
+    "repo": "https://github.com/nievyx/card_pygame",
+    "demo": null
+  },
+  "visibility": {
+    "portfolio": false,
+    "os": true
+  }
+}
+
 ]
