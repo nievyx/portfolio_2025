@@ -2,6 +2,8 @@ import { mountMediaInto } from "./media.js";
 
 let projects = [];
 
+
+
 // Load projects from JSON
 async function loadProjects() {
     // main.js is in /assets/js, so JSON is one level up in /assets/data
@@ -12,6 +14,11 @@ async function loadProjects() {
 
 
 function projectCard(p) {
+
+    const dateText = p?.date
+        ? `<p class="date">${p.date}</p>`
+        : `<p class="date no-date"></p>`; // No date available
+
     const grid = document.createElement('article');
     grid.className = 'card';
 
@@ -20,18 +27,27 @@ function projectCard(p) {
     mountMediaInto(media, p.name, `${p.title} demo`);
 
     grid.innerHTML = `
-  <div class="card-body">
-    <h3>${p.title}</h3>
-    <p class="desc">${p.desc}</p>
-    <div class="stack">
-      ${p.stack.map(s=>`<span class="tag">${s}</span>`).join('')}
+    <div class="card-body">
+
+    <div class="title-container">
+        <h3>${p.title}</h3>
+        <div class="date">${dateText}</div>
     </div>
+
+    <p class="desc">${p.desc}</p>
+
+    <div class="stack">
+      ${p.stack.map(s => `<span class="tag">${s}</span>`).join('')}
+    </div>
+
     <div class="card-actions">
       ${p.links.repo ? `
   <a class="btn ghost" href="${p.links.repo}" target="_blank" rel="noopener">
+
     <svg class="github-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58l-.01-2.04c-3.34.73-4.04-1.61-4.04-1.61-.54-1.39-1.31-1.76-1.31-1.76-1.07-.73.08-.72.08-.72 1.19.08 1.82 1.23 1.82 1.23 1.05 1.8 2.75 1.28 3.42.98.11-.76.41-1.28.75-1.57-2.66-.3-5.47-1.34-5.47-5.97 0-1.32.47-2.39 1.23-3.24-.12-.3-.53-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.87.12 3.17.76.85 1.23 1.92 1.23 3.24 0 4.64-2.81 5.67-5.49 5.97.42.36.8 1.08.8 2.18l-.01 3.23c0 .32.21.7.83.58A12 12 0 0 0 12 .5Z"/>
     </svg>
+
     Code
   </a>
 ` : ''}
@@ -51,6 +67,15 @@ function projectCard(p) {
 
 // Build the HTML that goes inside the popup modal for a project
 function buildProjectModalContent(p) {
+
+    // TODO: remove undefined date if missing
+    // const dateText = p.date === undefined ? "" : `<div class="date">${p.date}</div>`;
+    // if (typeof p.date === undefined) {
+    //     dateText = "";
+    const dateText = p?.date
+        ? `<p class="date">${p.date}</p>`
+        : `<p class="date no-date">No date available</p>`;
+
     // fall back to desc if longDesc is missing
     const mainText = p.longDesc || p.desc || "";
 
@@ -93,6 +118,9 @@ function buildProjectModalContent(p) {
 
     return `
       <h2>${p.title}</h2>
+
+      ${dateText}
+
       <p>${mainText}</p>
     
       ${highlightsSection}
