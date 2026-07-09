@@ -256,10 +256,10 @@
 },
 {
   "id": "database-assignment",
-  "name": "Tabletop Game Database",
-  "title": "Databases Assignment",
-  "desc": "A relational database and CRUD REST API wrapper built with FastAPI, SQLite, React, Vite, and Docker Compose, designed around a space-themed tabletop game database.",
-  "longDesc": "Databases Assignment is a full-stack database project built to demonstrate relational database design, CRUD operations, and API integration. The backend uses FastAPI with raw SQL and SQLite, avoiding an ORM to focus directly on database concepts and query handling. The frontend is built with React and Vite, providing a simple interface for interacting with players, profiles, assets, and quests. Docker Compose is included to run the frontend and backend together, making the project easier to develop, test, and demonstrate.",
+  "name": "Databases Assignment",
+  "title": "Tabletop Game Management System",
+  "desc": "A full-stack management system built with FastAPI, React, SQL, and Docker Compose, featuring a relational database, REST API, and CRUD interface for managing a space-themed tabletop game.",
+  "longDesc": "Tabletop Game Management System is a full-stack database project built to demonstrate relational database design, CRUD operations, and REST API development. The backend uses FastAPI with raw SQL to focus on database concepts and query handling without relying on an ORM, while the React frontend provides an interface for managing players, profiles, assets, and quests. Docker Compose simplifies local development by running the frontend and backend together. The project is designed with future extensibility in mind, with SQLite used during development and PostgreSQL planned as a production-ready database option through a reusable database adapter architecture.",
   "date": 2025,
   "highlights": [
     "FastAPI backend with RESTful CRUD endpoints",
