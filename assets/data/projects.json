@@ -255,11 +255,12 @@
   }
 },
 {
-  "id": "databases-assignment",
-  "name": "databases-assignment",
+  "id": "database-assignment",
+  "name": "Tabletop Game Database",
   "title": "Databases Assignment",
   "desc": "A relational database and CRUD REST API wrapper built with FastAPI, SQLite, React, Vite, and Docker Compose, designed around a space-themed tabletop game database.",
   "longDesc": "Databases Assignment is a full-stack database project built to demonstrate relational database design, CRUD operations, and API integration. The backend uses FastAPI with raw SQL and SQLite, avoiding an ORM to focus directly on database concepts and query handling. The frontend is built with React and Vite, providing a simple interface for interacting with players, profiles, assets, and quests. Docker Compose is included to run the frontend and backend together, making the project easier to develop, test, and demonstrate.",
+  "date": 2025,
   "highlights": [
     "FastAPI backend with RESTful CRUD endpoints",
     "SQLite relational database using schema and seed SQL files",
@@ -297,7 +298,7 @@
     "demo": ""
   },
   "visibility": {
-    "portfolio": false,
+    "portfolio": true,
     "os": true
   }
 },
@@ -315,14 +316,7 @@
     "Dynamic cursor changes for attacks and spell selection",
     "Image caching system to reduce repeated loading and scaling"
   ],
-  "learning": [
-    "Building a real-time game loop with Pygame",
-    "Designing turn-based battle states and win/loss conditions",
-    "Using classes for monsters, spells, battle logic, and UI components",
-    "Separating game data, battle logic, and rendering code",
-    "Using lists and dictionaries for card hands, monster pools, spells, and image caching",
-    "Managing project scope and moving larger features into future development"
-  ],
+    "date": 2026,
   "stack": [
   "Python 3.13", 
   "Pygame",
@@ -335,7 +329,7 @@
     "demo": null
   },
   "visibility": {
-    "portfolio": false,
+    "portfolio": true,
     "os": true
   }
 }
