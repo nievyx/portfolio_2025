@@ -17,9 +17,26 @@
   ],
 
   "skills": {
-    "languages": ["Python", "React", "HTML", "CSS", "SQL (MySQL)","C++", "TypeScript", "JavaScript"],
-    "frameworks": ["Flask","Django", "React"],
-    "tools": ["Git", "Github", "Docker", "Vercel"],
+    "languages": [
+    "Python", 
+    "HTML", 
+    "CSS", 
+    "SQL (MySQL)",
+    "C++", 
+    "TypeScript", 
+    "JavaScript"
+  ],
+    "frameworks": [
+    "Flask",
+    "Django", 
+    "React"
+  ],
+    "tools": [
+      "Git", 
+      "Github", 
+      "Docker", 
+      "Vercel"
+    ],
     "concepts": [
       "REST APIs",
       "Authentication & Authorization",
