@@ -215,7 +215,7 @@
   {
   "id": "virtual-desk-setup",
   "name": "virtual-desk-setup",
-  "title": "Virtual Desk Setup",
+  "title": "WIP: Virtual Desk Setup",
   "desc": "An interactive 3D portfolio environment built with React, TypeScript, React Three Fiber, and Blender, designed around a virtual desk scene with camera modes, editable materials, and monitor interactions.",
   "longDesc": "Virtual Desk Setup is an experimental 3D portfolio project that turns a personal workspace into an interactive web experience. The scene is modelled in Blender and rendered in React using React Three Fiber, with custom camera modes for editing, play view, and monitor focus. The project is being used to explore 3D web development, scene organisation, responsive camera behaviour, material editing, and developer tooling through a custom debug/control workflow.",
   "highlights": [
@@ -226,6 +226,7 @@
     "Clickable monitor interaction that transitions the camera toward the screen",
     "Modular React structure with scene, settings, and feature-based organisation"
   ],
+  
   "learning": [
     "Building 3D web interfaces with React Three Fiber and Three.js",
     "Creating and exporting Blender assets for use in a web application",
@@ -250,13 +251,13 @@
     "demo": "https://virtual-desk-setup.vercel.app/"
   },
   "visibility": {
-    "portfolio": false,
+    "portfolio": true,
     "os": true
   }
 },
 {
   "id": "database-assignment",
-  "name": "Databases Assignment",
+  "name": "database-assignment",
   "title": "Tabletop Game Management System",
   "desc": "A full-stack management system built with FastAPI, React, SQL, and Docker Compose, featuring a relational database, REST API, and CRUD interface for managing a space-themed tabletop game.",
   "longDesc": "Tabletop Game Management System is a full-stack database project built to demonstrate relational database design, CRUD operations, and REST API development. The backend uses FastAPI with raw SQL to focus on database concepts and query handling without relying on an ORM, while the React frontend provides an interface for managing players, profiles, assets, and quests. Docker Compose simplifies local development by running the frontend and backend together. The project is designed with future extensibility in mind, with SQLite used during development and PostgreSQL planned as a production-ready database option through a reusable database adapter architecture.",
@@ -332,6 +333,51 @@
     "portfolio": true,
     "os": true
   }
+},
+{
+  "id": "devagotchi",
+  "name": "devagotchi",
+  "title": "Devagotchi VS Code Extension",
+  "desc": "A Tamagotchi-inspired VS Code extension where a virtual pet grows, reacts, and unlocks progress through coding activity and locally run Python challenges.",
+  "longDesc": "Devagotchi is a VS Code extension built with TypeScript that turns daily coding into a lightweight virtual pet experience. The pet gains XP as the user types, tracks daily coding progress, updates hunger and happiness, and displays animated sprite states inside a custom VS Code webview. It also includes a local challenge system that runs Python coding tasks on the user's own machine, letting users complete exercises and feed progression back into the pet. The project focuses on extension development, state persistence, webview UI rendering, local process execution, and separating core pet logic from VS Code integration through a cleaner refactored architecture.",
+  "date": 2026,
+  "highlights": [
+    "Custom VS Code extension built with TypeScript",
+    "Virtual pet gains XP from coding activity",
+    "Daily goal system with streaks, hunger, and happiness tracking",
+    "Local Python challenge system that runs on the user's machine",
+    "Challenge completion can contribute to pet progression",
+    "Animated sprite-based pet displayed in a VS Code webview",
+    "Persistent pet state using VS Code globalState",
+    "Refactored architecture separating extension glue, pet logic, challenge logic, and webview rendering"
+  ],
+  "learning": [
+    "Building and debugging VS Code extensions",
+    "Using webviews to render custom interactive UI inside VS Code",
+    "Managing persistent extension state with globalState",
+    "Running local Python challenge scripts from a TypeScript extension",
+    "Handling local process execution and user workspace files safely",
+    "Refactoring TypeScript modules into cleaner responsibility layers",
+    "Designing simple game-like systems around XP, streaks, challenges, and pet state"
+  ],
+  "stack": [
+    "TypeScript",
+    "VS Code Extension API",
+    "Python",
+    "Node.js child_process",
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "Webview",
+    "Sprite Animation"
+  ],
+  "links": {
+    "repo": null,
+    "demo": null
+  },
+  "visibility": {
+    "portfolio": true,
+    "os": true
+  }
 }
-
 ]

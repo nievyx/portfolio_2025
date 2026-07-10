@@ -2,8 +2,6 @@ import { mountMediaInto } from "./media.js";
 
 let projects = [];
 
-
-
 // Load projects from JSON
 async function loadProjects() {
     // main.js is in /assets/js, so JSON is one level up in /assets/data
@@ -73,7 +71,7 @@ function buildProjectModalContent(p) {
     // if (typeof p.date === undefined) {
     //     dateText = "";
     const dateText = p?.date
-        ? `<p class="date">${p.date}</p>`
+        ? `<p class="date">${p.date}</p>`  
         : `<p class="date no-date">No date available</p>`;
 
     // fall back to desc if longDesc is missing
