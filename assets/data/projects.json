@@ -39,7 +39,7 @@
       "Search and filter inventory records",
       "Clear separation between routes, templates and models"
     ],
-    "date": 2019,
+    "date": 2021,
     "learning": [
       "Structuring a Flask project for growth",
       "Designing RESTful routes for basic resources",
