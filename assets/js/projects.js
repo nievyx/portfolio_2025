@@ -66,10 +66,6 @@ function projectCard(p) {
 // Build the HTML that goes inside the popup modal for a project
 function buildProjectModalContent(p) {
 
-    // TODO: remove undefined date if missing
-    // const dateText = p.date === undefined ? "" : `<div class="date">${p.date}</div>`;
-    // if (typeof p.date === undefined) {
-    //     dateText = "";
     const dateText = p?.date
         ? `<p class="date">${p.date}</p>`  
         : `<p class="date no-date">No date available</p>`;
