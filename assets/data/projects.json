@@ -11,6 +11,7 @@
       "Optional auto-add-to-cart behaviour",
       "Twilio SMS alerts with product details"
     ],
+    "date": 2025,
     "learning": [
       "Browser automation with Playwright",
       "Handling dynamic content and selectors",
@@ -23,7 +24,8 @@
     },
     "visibility": {
       "portfolio": true,
-      "os": true
+      "os": true,
+      "_notes": "Sept 7 2025"
     }
   },
   
@@ -70,6 +72,7 @@
       "🎒 Inventory System: Carry and use items during and outside combat.",
       "💾 Saving and Loading: Save your progress and resume where you left off. (in Progress)"
     ],
+    "date": 2021,
     "learning": [],
     "stack": ["Python", "OOP", "JSON", "Game Loops"],
     "links": {
@@ -94,6 +97,7 @@
       "Fake terminal application with interactive command-style input",
       "Dynamic project data loaded from external JSON"
     ],
+    "date": 2025,
     "learning": [
       "Designing reusable React components for complex interactive UIs",
       "Managing application and window state across multiple components",
@@ -107,7 +111,8 @@
     },
     "visibility": {
       "portfolio": true,
-      "os": false
+      "os": false,
+      "_notes": "Dec 12 2025"
     }
   },
 
@@ -118,6 +123,7 @@
     "desc": "A Django project featuring user registration, authentication, and full CRUD functionality for blog posts. Includes two main apps — Blog and Users — and uses Crispy Forms with Bootstrap 4 for clean, responsive UI.",
     "longDesc": "",
     "highlights": [],
+    "date": 2025,
     "learning": [],
     "stack": ["Python", "Django 5.2", "Crispy Forms", "Bootstrap 4", "SQLite"],
     "links": {
@@ -142,6 +148,7 @@
       "Modular architecture separating game logic, AI, and audio",
       "Integrated audio playback via a custom miniaudio wrapper"
     ],
+    "date": 2025,
     "learning": [],
     "stack": ["C++", "Minimax Algorithm", "miniAudio", "Native Audio APIs"],
     "links": {
@@ -150,7 +157,8 @@
     },
     "visibility": {
       "portfolio": true,
-      "os": true
+      "os": true,
+      "_notes": "Sept 7 2025"
     }
   },
 
@@ -166,6 +174,7 @@
       "Simple block selection system",
       "Real-time interaction using a Python-based game engine"
     ],
+    "date": 2026,
     "learning": [
       "Using a 3D game engine and understanding scene graphs",
       "Handling real-time input and player controls",
@@ -179,7 +188,8 @@
     },
     "visibility": {
       "portfolio": true,
-      "os": false
+      "os": false,
+      "_notes": "Jan 4 2026"
     }
   },
 
@@ -195,6 +205,7 @@
       "Displays predicted class output to the user",
       "Simple, user-friendly desktop workflow"
     ],
+    "date": 2025,
     "learning": [
       "Integrating machine learning models into applications",
       "Handling image input and preprocessing",
@@ -226,7 +237,7 @@
     "Clickable monitor interaction that transitions the camera toward the screen",
     "Modular React structure with scene, settings, and feature-based organisation"
   ],
-  
+  "date": 2026,
   "learning": [
     "Building 3D web interfaces with React Three Fiber and Three.js",
     "Creating and exporting Blender assets for use in a web application",
@@ -317,7 +328,7 @@
     "Dynamic cursor changes for attacks and spell selection",
     "Image caching system to reduce repeated loading and scaling"
   ],
-    "date": 2026,
+  "date": 2026,
   "stack": [
   "Python 3.13", 
   "Pygame",
