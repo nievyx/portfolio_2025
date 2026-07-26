@@ -4,10 +4,12 @@ export function mountMediaInto(
     container,
     projectName,
     titleText = "Project demo",
-    { 
-        controls = true, 
-        addMargin = false, 
-        addRadius = false } = {}
+    {
+        controls = true,
+        addMargin = false,
+        addRadius = false,
+        eager = false,
+    } = {}
 ) {
     const base = `assets/imgs/${projectName}`;
     const candidates = [
@@ -17,6 +19,7 @@ export function mountMediaInto(
     ];
 
     let idx = 0;
+    let loaded = false;
 
     function next() {
         if (idx >= candidates.length) return;
@@ -32,7 +35,7 @@ export function mountMediaInto(
             el.muted = true;
             el.playsInline = true;
             el.controls = controls;
-            el.preload = "metadata";
+            el.preload = eager ? "metadata" : "none";
             el.style.width = "100%";
         } else {
             el = document.createElement("img");

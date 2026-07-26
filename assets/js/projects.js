@@ -155,7 +155,7 @@ document.addEventListener('click', (event) => {
     const html = buildProjectModalContent(p);
     openModal(html);
     const mediaSlot = document.querySelector("#modal-inner .modal-media");
-    if (mediaSlot) mountMediaInto(mediaSlot, p.name, `${p.title} detailed demo`);
+    if (mediaSlot) mountMediaInto(mediaSlot, p.name, `${p.title} detailed demo`, { eager: true });
 
 });
 
