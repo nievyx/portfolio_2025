@@ -72,7 +72,7 @@
       "🎒 Inventory System: Carry and use items during and outside combat.",
       "💾 Saving and Loading: Save your progress and resume where you left off. (in Progress)"
     ],
-    "date": 2021,
+    "date": 2025,
     "learning": [],
     "stack": ["Python", "OOP", "JSON", "Game Loops"],
     "links": {
@@ -82,7 +82,8 @@
     "visibility": {
       "portfolio": true,
       "os": true
-    }
+    },
+    "_notes": "Jan 2025"
   },
 
   {
