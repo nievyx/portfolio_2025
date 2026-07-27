@@ -42,6 +42,7 @@
       "Clear separation between routes, templates and models"
     ],
     "date": 2021,
+    "status": "Completed",
     "learning": [
       "Structuring a Flask project for growth",
       "Designing RESTful routes for basic resources",
@@ -72,7 +73,8 @@
       "🎒 Inventory System: Carry and use items during and outside combat.",
       "💾 Saving and Loading: Save your progress and resume where you left off. (in Progress)"
     ],
-    "date": 2025,
+    "date": "2025-01",
+    "status": "Completed",
     "learning": [],
     "stack": ["Python", "OOP", "JSON", "Game Loops"],
     "links": {
@@ -98,7 +100,8 @@
       "Fake terminal application with interactive command-style input",
       "Dynamic project data loaded from external JSON"
     ],
-    "date": 2025,
+    "date": "2025-12",
+    "status": "Completed",
     "learning": [
       "Designing reusable React components for complex interactive UIs",
       "Managing application and window state across multiple components",
@@ -124,7 +127,8 @@
     "desc": "A Django project featuring user registration, authentication, and full CRUD functionality for blog posts. Includes two main apps — Blog and Users — and uses Crispy Forms with Bootstrap 4 for clean, responsive UI.",
     "longDesc": "",
     "highlights": [],
-    "date": 2025,
+    "date": "2025-05",
+    "status": "Stable",
     "learning": [],
     "stack": ["Python", "Django 5.2", "Crispy Forms", "Bootstrap 4", "SQLite"],
     "links": {
@@ -149,7 +153,8 @@
       "Modular architecture separating game logic, AI, and audio",
       "Integrated audio playback via a custom miniaudio wrapper"
     ],
-    "date": 2025,
+    "date": "2025-09",
+    "status": "Completed",
     "learning": [],
     "stack": ["C++", "Minimax Algorithm", "miniAudio", "Native Audio APIs"],
     "links": {
@@ -175,7 +180,8 @@
       "Simple block selection system",
       "Real-time interaction using a Python-based game engine"
     ],
-    "date": 2026,
+    "date": "2026-01",
+    "status": "Completed",
     "learning": [
       "Using a 3D game engine and understanding scene graphs",
       "Handling real-time input and player controls",
@@ -200,20 +206,30 @@
     "title": "Image Classifier GUI",
     "desc": "A desktop GUI application that classifies images using a trained machine learning model, built to explore the basics of computer vision and model integration.",
     "longDesc": "Image Classifier GUI is a Python desktop application that allows users to load an image and classify it using a pre-trained machine learning model. The project was created to better understand how machine learning models can be integrated into user-facing applications, focusing on model loading, inference, and basic GUI design rather than model training itself.",
-    "highlights": [
-      "Graphical user interface for selecting and classifying images",
-      "Integration of a pre-trained machine learning model",
-      "Displays predicted class output to the user",
-      "Simple, user-friendly desktop workflow"
+     "highlights": [
+    "Loads and runs a local TensorFlow/Keras classification model",
+    "Processes uploaded images using Pillow and NumPy",
+    "Resizes and normalises images before inference",
+    "Predicts one of ten supported object classes",
+    "Displays the predicted class and confidence percentage",
+    "Provides an interactive interface using Taipy GUI"
+  ],
+  "learning": [
+    "Loading and using saved Keras models",
+    "Preparing images for neural-network inference",
+    "Converting images into NumPy arrays",
+    "Normalising input data consistently with model expectations",
+    "Connecting machine-learning inference to a user interface",
+    "Presenting prediction confidence to users"
     ],
-    "date": 2025,
-    "learning": [
-      "Integrating machine learning models into applications",
-      "Handling image input and preprocessing",
-      "Building desktop GUIs in Python",
-      "Separating application logic from interface code"
-    ],
-    "stack": ["Python", "Pillow"],
+     "stack": [
+    "Python",
+    "TensorFlow",
+    "Keras",
+    "Taipy GUI",
+    "Pillow",
+    "NumPy"
+  ],
     "links": {
       "repo": "https://github.com/nievyx/ImageClassifierGUI",
       "demo": null
