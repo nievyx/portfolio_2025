@@ -214,6 +214,8 @@
     "Displays the predicted class and confidence percentage",
     "Provides an interactive interface using Taipy GUI"
   ],
+  "date" : "2025-05",
+  "status": "Learning Project",
   "learning": [
     "Loading and using saved Keras models",
     "Preparing images for neural-network inference",
