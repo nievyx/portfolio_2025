@@ -2,29 +2,56 @@ import { mountMediaInto } from "./media.js";
 
 let projects = [];
 
+// Format Project Dates for cards and modals.
+function formatProjectDate(value) {
+	const date = String(value);
+
+	// Keep year only dates unchanged
+	if (/^\d{4}$/.test(date)) {
+		return date;
+	}
+
+	// Validate and format full dates (YYYY-MM-DD)
+	const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(date);
+	
+	if (!match) {
+		console.warn(`Invalid date format for project: ${date}`);
+		return date; // Return as-is if invalid
+	}
+
+	const year = Number(match[1]);
+	const month = Number(match[2]);
+
+	return new Intl.DateTimeFormat('en-GB', {
+		month: 'short',
+		year: 'numeric'
+	}).format(new Date(year, month - 1, 1));
+}
+	
+
 // Load projects from JSON
 async function loadProjects() {
-    // main.js is in /assets/js, so JSON is one level up in /assets/data
-    const res = await fetch("assets/data/projects.json");
-    if (!res.ok) throw new Error(`Failed to load projects.json (${res.status})`);
-    return await res.json();
+	// main.js is in /assets/js, so JSON is one level up in /assets/data
+	const res = await fetch("assets/data/projects.json");
+	if (!res.ok) throw new Error(`Failed to load projects.json (${res.status})`);
+	return await res.json();
 }
 
 
 function projectCard(p) {
 
-    const dateText = p?.date
-        ? `<p class="date">${p.date}</p>`
-        : `<p class="date no-date"></p>`; // No date available
+	const dateText = p?.date
+		? `<p class="date">${p.date}</p>`
+		: `<p class="date no-date"></p>`; // No date available
 
-    const grid = document.createElement('article');
-    grid.className = 'card';
+	const grid = document.createElement('article');
+	grid.className = 'card';
 
-    const media = document.createElement('div');
-    media.className = 'card-media';
-    mountMediaInto(media, p.name, `${p.title} demo`);
+	const media = document.createElement('div');
+	media.className = 'card-media';
+	mountMediaInto(media, p.name, `${p.title} demo`);
 
-    grid.innerHTML = `
+	grid.innerHTML = `
     <div class="card-body">
 
     <div class="title-container">
@@ -59,58 +86,58 @@ function projectCard(p) {
   </div>
 `;
 
-    grid.appendChild(media);
-    return grid;
+	grid.appendChild(media);
+	return grid;
 }
 
 // Build the HTML that goes inside the popup modal for a project
 function buildProjectModalContent(p) {
 
-    const dateText = p?.date
-        ? `<p class="date">${p.date}</p>`  
-        : `<p class="date no-date">No date available</p>`;
+	const dateText = p?.date
+		? `<p class="date">${p.date}</p>`
+		: `<p class="date no-date">No date available</p>`;
 
-    // fall back to desc if longDesc is missing
-    const mainText = p.longDesc || p.desc || "";
+	// fall back to desc if longDesc is missing
+	const mainText = p.longDesc || p.desc || "";
 
-    const highlightsSection = p.highlights && p.highlights.length
-        ? `
+	const highlightsSection = p.highlights && p.highlights.length
+		? `
       <h3>Key Features</h3>
       <ul>
         ${p.highlights.map(item => `<li>${item}</li>`).join('')}
       </ul>
     `
-        : "";
+		: "";
 
-    const learningSection = p.learning && p.learning.length
-        ? `
+	const learningSection = p.learning && p.learning.length
+		? `
       <h3>What I Learned</h3>
       <ul>
         ${p.learning.map(item => `<li>${item}</li>`).join('')}
       </ul>
     `
-        : "";
+		: "";
 
-    const stackSection = p.stack && p.stack.length
-        ? `
+	const stackSection = p.stack && p.stack.length
+		? `
       <h3>Tech Stack</h3>
       <ul>
         ${p.stack.map(s => `<li>${s}</li>`).join('')}
       </ul>
     `
-        : "";
+		: "";
 
-    const linksSection = p.links && (p.links.repo || p.links.demo)
-        ? `
+	const linksSection = p.links && (p.links.repo || p.links.demo)
+		? `
       <h3>Links</h3>
       <ul>
         ${p.links.repo ? `<li><a href="${p.links.repo}" target="_blank" rel="noopener">Source code on GitHub</a></li>` : ""}
         ${p.links.demo ? `<li><a href="${p.links.demo}" target="_blank" rel="noopener">Live demo</a></li>` : ""}
       </ul>
     `
-        : "";
+		: "";
 
-    return `
+	return `
       <h2>${p.title}</h2>
 
       ${dateText}
@@ -132,12 +159,12 @@ function buildProjectModalContent(p) {
 // ===== Modal logic =====
 function openModal(html) {
 
-    document.getElementById("modal-inner").innerHTML = html;
-    document.getElementById("modal").classList.add("show");
+	document.getElementById("modal-inner").innerHTML = html;
+	document.getElementById("modal").classList.add("show");
 }
 
 function closeModal() {
-    document.getElementById("modal").classList.remove("show");
+	document.getElementById("modal").classList.remove("show");
 }
 
 // TODO: temp
@@ -145,34 +172,34 @@ window.closeModal = closeModal;
 
 // Delegate clicks on "More Info" buttons
 document.addEventListener('click', (event) => {
-    const btn = event.target.closest('.more-info-btn');
-    if (!btn) return;
+	const btn = event.target.closest('.more-info-btn');
+	if (!btn) return;
 
-    const name = btn.dataset.project;
-    const p = projects.find(pr => pr.name === name);
-    if (!p) return;
+	const name = btn.dataset.project;
+	const p = projects.find(pr => pr.name === name);
+	if (!p) return;
 
-    const html = buildProjectModalContent(p);
-    openModal(html);
-    const mediaSlot = document.querySelector("#modal-inner .modal-media");
-    if (mediaSlot) mountMediaInto(mediaSlot, p.name, `${p.title} detailed demo`, { eager: true });
+	const html = buildProjectModalContent(p);
+	openModal(html);
+	const mediaSlot = document.querySelector("#modal-inner .modal-media");
+	if (mediaSlot) mountMediaInto(mediaSlot, p.name, `${p.title} detailed demo`, { eager: true });
 
 });
 
 export async function initProjects() {
-    try {
-        projects = await loadProjects();
+	try {
+		projects = await loadProjects();
 
-        const projectsGrid = document.getElementById("projectsGrid");
-        if (!projectsGrid) return;
+		const projectsGrid = document.getElementById("projectsGrid");
+		if (!projectsGrid) return;
 
-        projectsGrid.append(
-            ...projects
-                .filter(p => p.visibility && p.visibility.portfolio === true)
-                .map(projectCard)
-        );
-    } catch (err) {
-        console.error(err);
-    }
+		projectsGrid.append(
+			...projects
+				.filter(p => p.visibility && p.visibility.portfolio === true)
+				.map(projectCard)
+		);
+	} catch (err) {
+		console.error(err);
+	}
 }
 
