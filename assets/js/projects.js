@@ -1,4 +1,5 @@
 import { mountMediaInto } from "./media.js";
+import { sortProjects } from "./project-order.js";
 
 let projects = [];
 
@@ -191,13 +192,20 @@ export async function initProjects() {
 		projects = await loadProjects();
 
 		const projectsGrid = document.getElementById("projectsGrid");
+
 		if (!projectsGrid) return;
 
 		projectsGrid.append(
-			...projects
-				.filter(p => p.visibility && p.visibility.portfolio === true)
-				.map(projectCard)
+			...sortProjects(
+				projects
+				.filter(
+					p => 
+						p.visibility && 
+						p.visibility.portfolio === true
+					)
+				).map(projectCard)
 		);
+
 	} catch (err) {
 		console.error(err);
 	}
