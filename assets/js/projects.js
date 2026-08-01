@@ -211,3 +211,10 @@ export async function initProjects() {
 	}
 }
 
+// console.table(
+// 	orderedProjects.map((project, index) => ({
+// 		position:	index +1,
+// 		id:		project.id,
+// 		title: 		project.title
+// 	}))
+// )

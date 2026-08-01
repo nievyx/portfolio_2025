@@ -1,0 +1,39 @@
+
+@property --a {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+}
+
+@keyframes spin {
+    to { --a: 360deg; }
+}
+
+.card {
+    position: relative;
+    isolation: isolate;
+    overflow: visible !important;
+}
+.card::before {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    z-index: -1;
+    border-radius: inherit;
+    background: conic-gradient(
+        from var(--a),
+        transparent 0deg,
+        #7c3aed 80deg,
+        #06b6d4 160deg,
+        transparent 240deg,
+        #7c3aed 320deg,
+        transparent 360deg
+    );
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.card:hover::before {
+    opacity: 1;
+    animation: spin 5s linear infinite;
+}
