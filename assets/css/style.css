@@ -67,8 +67,18 @@
     .date{color:var(--muted);font-size:16px;margin-bottom:8px}
 
     .projects{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+    
     .card{grid-column:span 12;background:linear-gradient(180deg, var(--panel), var(--panel-2));border:1px solid rgba(255,255,255,.06);border-radius:16px;overflow:hidden;display:grid;grid-template-columns:1.1fr 1fr;box-shadow:var(--shadow)}
-    .card-media{position:relative;background:#0e0f14;min-height:220px;aspect-ratio:16/9;overflow:hidden}
+    
+    .card-media
+    {
+      position:relative;
+      background:#0e0f14;
+      min-height:220px;
+      aspect-ratio:16/9; /* TODO: Not sure if i like the way the demos are displayed */
+      overflow:hidden
+    }
+
     .thumb{position:absolute;inset:0;display:grid;place-items:center;font-family:"Space Mono";color:#9aa1ff;opacity:.9}
     .card-body{padding:18px}
     .card h3{margin:0 0 8px;font-size:18px}
