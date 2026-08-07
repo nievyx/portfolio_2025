@@ -39,6 +39,15 @@ root
         └── <project folders>  # Demo GIFs/PNGs for each project
 ```
 
+## ✅ TODOS:
+
+```
+[ ] - Demos from the top load pirority 
+[ ] - Archived and old projects seperate section
+[ ] - Add wasd and arrow support for project scroll
+[ ] - Clicking anywhere on project card opens modal  
+```
+
 ## 📬 Contact
 
 Feel free to get in touch using the contact form on the site. (Currently unavaliable, feel free to message me via github)
