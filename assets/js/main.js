@@ -1,7 +1,7 @@
 // New Refactored Approach
 import { initIntro } from "./intro.js";
 import { initProjects } from "./projects.js";
-
+import { keyboardControls } from "./keyboard-controls.js";
 
 // ====== Editable profile links ======
 const LINKS = {
@@ -44,3 +44,4 @@ function initFooterAndLinks() {
 initIntro();
 initProjects();
 initFooterAndLinks();
+keyboardControls();
