@@ -2,7 +2,7 @@
 const introLines = [
     "> hi, i'm Niamh! — a self-taught backend developer and second-year software engineering student ",
     "> i enjoy designing efficient Python APIs, automating workflows, and exploring DevOps practices",
-    "> currently expanding my skills through projects and open to remote opportunities"
+    "> currently expanding my skills through projects open to software engineering internships and opportunities"
 ];
 
 function typeInto(el, lines, speed=28){
